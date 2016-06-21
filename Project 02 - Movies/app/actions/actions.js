@@ -16,11 +16,17 @@ export function requestMovies(movie) {
 	}
 }
 
-export function receiveMovies(movie, json) {
+export function receiveMovies(category, response) {
 	return {
 		type: RECEIVE_MOVIES,
-		movie,
-		movies: json.data.children.map(child => child.data),
-		receiveAt: Date.now()
+		movies: response,
+		category
+	}
+}
+
+function fetchMovies(movie) {
+	return dispatch => {
+		dispatch(requestMovies(movie))
+		return fetch()
 	}
 }

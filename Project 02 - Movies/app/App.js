@@ -2,12 +2,14 @@
 import React, {Component} from 'react';
 import { Router, Scene } from 'react-native-router-flux';
 import { Provider, connect } from 'react-redux'
-import { createStore, compose } from 'redux'
+import { createStore, compose, applyMiddleware } from 'redux'
 import movieApp from './reducers/reducers'
 import MoviesContainer from './containers/MoviesContainer'
 import MovieDetails from './components/MovieDetails'
+import thunkMiddleware from 'redux-thunk'
 
-let store = createStore(movieApp)
+
+let store = createStore(movieApp, applyMiddleware(thunkMiddleware))
 const RouterWithRedux = connect()(Router)
 
 class MovieApp extends Component {
