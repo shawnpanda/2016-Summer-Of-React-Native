@@ -2,27 +2,28 @@ import { connect } from 'react-redux'
 import React, { Component, PropTypes } from 'react'
 // import { setVisibilityFilter } from '../actions/actions'
 import Movies from '../components/Movies'
-// import fetchMovies from '../api/index'
-import { receiveMovies, fetchMovies } from '../actions/actions'
-import { View, Text } from 'react-native'
+import { fetchMoviesIfNeeded } from '../actions/actions'
+import { View, Text, TouchableOpacity } from 'react-native'
 
 class MoviesContainer extends Component {
 	componentDidMount() {
-		fetchMovies('popular')
+		this.props.fetchMoviesIfNeeded('popular')
 		console.log('component did mount')
 	}
-
-	componentWillReceiveProps(nextProps) {
-	    if (nextProps.category !== this.props.category) {
-	      const { dispatch, category } = nextProps
-	      dispatch(fetchMovies(category))
-	    }
-	  }
 
 	render () {
 		const { movies } = this.props
 		return (
-			<Movies movies={movies}/>
+			<View>
+			<View>
+				<Movies movies={movies}/>
+			</View>
+			<View>
+				<TouchableOpacity onPress={fetchMoviesIfNeeded}>
+					<Text>REFRESH</Text>
+				</TouchableOpacity>
+			</View>
+			</View>
 		)
 	}
 }
@@ -34,11 +35,15 @@ MoviesContainer.propTypes = {
 
 
 const mapStateToProps = (state) => {
+	const	{ movies } = state.movieData
   return {
-    movies: state.movies
+    movies: movies
   }
 }
 
-MoviesContainer = connect(mapStateToProps)(MoviesContainer)
+
+MoviesContainer = connect(mapStateToProps, {
+	fetchMoviesIfNeeded
+})(MoviesContainer)
 
 export default MoviesContainer

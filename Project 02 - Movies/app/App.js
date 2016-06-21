@@ -11,9 +11,10 @@ import devTools from 'remote-redux-devtools';
 import createLogger from 'redux-logger'
 
 
-export default function configureStore(initialState) {
+const logger = createLogger()
+function configureStore(initialState) {
   const enhancer = compose(
-    applyMiddleware(thunk, createLogger),
+    applyMiddleware(thunk, logger),
     devTools()
   );
 

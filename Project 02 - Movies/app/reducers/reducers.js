@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
-import { RECEIVE_MOVIES } from '../actions/actions'
+import { REQUEST_MOVIES, RECEIVE_MOVIES } from '../actions/actions'
 
-const initialState =[
+const initialMovies =[
 		{id: 1, title: 'move titile', 
 		overview: 'Located off the coast of Costa Rica, the Jurassic World luxury resort provides a habitat for an array of genetically engineered dinosaurs, including the vicious and intelligent Indominus rex. When the massive creature escapes, it sets off a chain reaction that causes the other dinos to run amok.', 
 		vote_average: 7},
@@ -12,13 +12,21 @@ const initialState =[
 		overview: "X-Men: Apocalypse is a 2016 American superhero film based on the fictional X-Men characters that appear in Marvel Comics. It is the ninth installment in the X-Men film series and a sequel to 2014's X-Men: Days of Future Past.", 
 		vote_average: 7}
 ]
-	
-function movies(state = initialState, action) {
+
+function movieReducer(state = {
+	isFetching: false,
+	movies: initialMovies
+}, action) {
 	switch (action.type) {
+		case REQUEST_MOVIES:
+			return Object.assign({}, state, {
+				isFetching: true
+			})
 		case RECEIVE_MOVIES:
-			return Object.assign({}, state, 
-				action.movies
-			)
+			return Object.assign({}, state, {
+				isFetching: false,
+				movies: action.movies
+			})
 		default:
 			return state
 	}
@@ -31,6 +39,8 @@ function page(state = 1, action) {
 	}
 }
 
-const movieApp = combineReducers({movies, page})
+const movieApp = combineReducers({
+	movieData: movieReducer
+})
 
 export default movieApp
