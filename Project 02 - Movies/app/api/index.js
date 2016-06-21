@@ -1,6 +1,15 @@
+const delay = (ms) =>
+	new Promise(resolve => setTimeout(resolve,ms))
 
-
-
+export const fetchMovies = (category) =>
+	delay(500).then(() => {
+		switch (category) {
+			case 'popular':
+				return fakeData['results']
+			default:
+				throw new Error('unknown category ${category}')
+		}
+	})
 
 const fakeData = {
   "page": 1,
@@ -111,7 +120,7 @@ const fakeData = {
     },
     {
       "adult": false,
-      "backdrop_path": "/9eKd1DDDAbrDNXR2he7ZJEu7UkI.jpg",
+      "backdrop_path": "/7LMp3YY6WrJEExwKEyVaQnRlC76.jpg",
       "genre_ids": [
         80,
         35,
@@ -182,11 +191,11 @@ const fakeData = {
       "overview": "Mere seconds after the events of \"Desolation\", Bilbo and Company continue to claim a mountain of treasure that was guarded long ago: But with Gandalf the Grey also facing some formidable foes of his own, the Hobbit is outmatched when the brutal army of orcs led by Azog the Defiler returns. But with other armies such as the elves and the men of Lake-Town, which are unsure to be trusted, are put to the ultimate test when Smaug's wrath, Azog's sheer strength, and Sauron's force of complete ends attack. All in all, the trusted armies have two choices: unite or die. But even worse, Bilbo gets put on a knife edge and finds himself fighting with Hobbit warfare with all of his might for his dwarf-friends, as the hope for Middle-Earth is all put in Bilbo's hands. The one \"precious\" thing to end it all.",
       "release_date": "2014-12-17",
       "poster_path": "/qrFwjJ5nvFnpBCmXLI4YoeHJNBH.jpg",
-      "popularity": 15.434565,
+      "popularity": 16.434565,
       "title": "The Hobbit: The Battle of the Five Armies",
       "video": false,
       "vote_average": 7.2,
-      "vote_count": 1471
+      "vote_count": 1470
     },
     {
       "adult": false,
@@ -234,8 +243,8 @@ const fakeData = {
       "adult": false,
       "backdrop_path": "/fii9tPZTpy75qOCJBulWOb0ifGp.jpg",
       "genre_ids": [
-        36,
         18,
+        36,
         53,
         10752
       ],
@@ -245,7 +254,7 @@ const fakeData = {
       "overview": "Based on the real life story of legendary cryptanalyst Alan Turing, the film portrays the nail-biting race against time by Turing and his brilliant team of code-breakers at Britain's top-secret Government Code and Cypher School at Bletchley Park, during the darkest days of World War II.",
       "release_date": "2014-11-14",
       "poster_path": "/noUp0XOqIcmgefRnRZa1nhtRvWO.jpg",
-      "popularity": 15.06502,
+      "popularity": 14.06502,
       "title": "The Imitation Game",
       "video": false,
       "vote_average": 8.1,
@@ -412,6 +421,6 @@ const fakeData = {
       "vote_count": 698
     }
   ],
-  "total_pages": 11543,
-  "total_results": 230847
+  "total_pages": 11324,
+  "total_results": 226478
 }

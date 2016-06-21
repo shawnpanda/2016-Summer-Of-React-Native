@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-
+import { RECEIVE_MOVIES } from '../actions/actions'
 
 const initialState =[
 		{id: 1, title: 'move titile', 
@@ -15,6 +15,10 @@ const initialState =[
 	
 function movies(state = initialState, action) {
 	switch (action.type) {
+		case RECEIVE_MOVIES:
+			return Object.assign({}, state, 
+				action.movies
+			)
 		default:
 			return state
 	}

@@ -8,11 +8,21 @@ import receiveMovies from '../actions/actions'
 class MoviesContainer extends Component {
 	ComponentDidMount() {
 		this.fetchData()
+		console.log('component did mount')
 	}
 
 	fetchData() {
-		fetchMovies('popular').then(movies =>
+		fetchMovies('popular').then(movies => {
 			receiveMovies('popular', movies)
+			console.log(movies)
+			}
+		)
+	}
+
+	render () {
+		const { movies } = this.props
+		return (
+			<Movies movies={movies}/>
 		)
 	}
 }
@@ -23,6 +33,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-MoviesContainer = connect(mapStateToProps)(Movies)
+MoviesContainer = connect(mapStateToProps)(MoviesContainer)
 
 export default MoviesContainer

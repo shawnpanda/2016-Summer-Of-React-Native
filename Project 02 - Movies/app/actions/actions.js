@@ -19,8 +19,7 @@ export function requestMovies(movie) {
 export function receiveMovies(category, response) {
 	return {
 		type: RECEIVE_MOVIES,
-		movies: response,
-		category
+		movies: response
 	}
 }
 
