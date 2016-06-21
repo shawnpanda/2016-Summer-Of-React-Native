@@ -1,3 +1,6 @@
+import fakeFetchMovies from '../api/index'
+
+
 export const SELECT_MOVIE = 'SELECT_MOVIE'
 export const REQUEST_MOVIES = 'REQUEST_MOVIES'
 export const RECEIVE_MOVIES = 'RECEIVE_MOVIES'
@@ -23,9 +26,11 @@ export function receiveMovies(category, response) {
 	}
 }
 
-function fetchMovies(movie) {
+export function fetchMovies(category) {
 	return dispatch => {
 		dispatch(requestMovies(movie))
-		return fetch()
+		return fakeFetchMovies('popular')
+			.then(response => response.json())
+			.then(json => dispatch(receiveMovies(category, json)))
 	}
 }

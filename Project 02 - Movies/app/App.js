@@ -16,7 +16,7 @@ export default function configureStore(initialState) {
     applyMiddleware(thunk, createLogger),
     devTools()
   );
-  // Note: passing enhancer as last argument requires redux@>=3.1.0
+
   return createStore(movieApp, initialState, enhancer);
 }
 

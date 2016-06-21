@@ -1,23 +1,23 @@
 import { connect } from 'react-redux'
-import React, { Component} from 'react'
+import React, { Component, PropTypes } from 'react'
 // import { setVisibilityFilter } from '../actions/actions'
 import Movies from '../components/Movies'
-import fetchMovies from '../api/index'
-import receiveMovies from '../actions/actions'
+// import fetchMovies from '../api/index'
+import { receiveMovies, fetchMovies } from '../actions/actions'
+import { View, Text } from 'react-native'
 
 class MoviesContainer extends Component {
-	ComponentDidMount() {
-		this.fetchData()
+	componentDidMount() {
+		fetchMovies('popular')
 		console.log('component did mount')
 	}
 
-	fetchData() {
-		fetchMovies('popular').then(movies => {
-			receiveMovies('popular', movies)
-			console.log(movies)
-			}
-		)
-	}
+	componentWillReceiveProps(nextProps) {
+	    if (nextProps.category !== this.props.category) {
+	      const { dispatch, category } = nextProps
+	      dispatch(fetchMovies(category))
+	    }
+	  }
 
 	render () {
 		const { movies } = this.props
@@ -26,6 +26,12 @@ class MoviesContainer extends Component {
 		)
 	}
 }
+
+MoviesContainer.propTypes = {
+	movies: PropTypes.array.isRequired,
+	dispatch: PropTypes.func.isRequired
+}
+
 
 const mapStateToProps = (state) => {
   return {

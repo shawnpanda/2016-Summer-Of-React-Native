@@ -1,11 +1,11 @@
 const delay = (ms) =>
 	new Promise(resolve => setTimeout(resolve,ms))
 
-export const fetchMovies = (category) =>
+export const fakeFetchMovies = (category) =>
 	delay(500).then(() => {
 		switch (category) {
 			case 'popular':
-				return fakeData['results']
+				return fakeData.results
 			default:
 				throw new Error('unknown category ${category}')
 		}
