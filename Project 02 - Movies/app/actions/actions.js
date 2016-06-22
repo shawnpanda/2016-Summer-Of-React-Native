@@ -1,4 +1,4 @@
-import fakeFetchMovies from '../api/index'
+import fakeData from '../api/index'
 
 export const SELECT_MOVIE = 'SELECT_MOVIE'
 export const REQUEST_MOVIES = 'REQUEST_MOVIES'
@@ -28,9 +28,9 @@ export function receiveMovies(category, response) {
 function fetchMovies(category) {
 	return dispatch => {
 		dispatch(requestMovies())
-		return fakeFetchMovies('popular')
-		.then(response => response.json())
-			.then(json =>dispatch(receiveMovies(category, json)))
+		return setTimeout(() => {
+			dispatch(receiveMovies(category, fakeData.results))
+		}, 300)
 	}
 }
 

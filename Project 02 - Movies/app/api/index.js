@@ -1,7 +1,7 @@
 const delay = (ms) =>
 	new Promise(resolve => setTimeout(resolve,ms))
 
-export const fakeFetchMovies = (category) =>
+export default fakeFetchMovies = (category) =>
 	delay(500).then(() => {
 		switch (category) {
 			case 'popular':
@@ -12,7 +12,7 @@ export const fakeFetchMovies = (category) =>
 		}
 	})
 
-const fakeData = {
+export default fakeData = {
   "page": 1,
   "results": [
     {
