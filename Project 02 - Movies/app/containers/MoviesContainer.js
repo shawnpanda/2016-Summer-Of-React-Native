@@ -1,6 +1,5 @@
 import { connect } from 'react-redux'
 import React, { Component, PropTypes } from 'react'
-// import { setVisibilityFilter } from '../actions/actions'
 import Movies from '../components/Movies'
 import { fetchMoviesIfNeeded } from '../actions/actions'
 import { View, Text, TouchableOpacity } from 'react-native'
