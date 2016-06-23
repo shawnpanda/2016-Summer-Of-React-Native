@@ -5,7 +5,6 @@ export const fakeFetchMovies = (category) =>
 	delay(500).then(() => {
 		switch (category) {
 			case 'popular':
-				console.log('fakeData is ' + fakeData.results)
 				return fakeData.results
 			default:
 				throw new Error('unknown category ${category}')
