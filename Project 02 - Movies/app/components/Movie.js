@@ -6,12 +6,11 @@ class Movie extends Component {
 
 	render() {
 		const goViewDetails = () => { Actions.details({
-						overview: this.props.overview,
-						imageUrl: this.props.imageUrl
+						movie: this.props.movie
 						}) }
 		return (
 			<TouchableOpacity style={styles.movie} onPress={goViewDetails}>
-				<Text>Movie {this.props.id}: {this.props.title}</Text>
+				<Text>Movie {this.props.movie.id}: {this.props.movie.title}</Text>
 			</TouchableOpacity>
 		)
 	}
@@ -27,8 +26,7 @@ var styles = StyleSheet.create({
 })
 
 Movie.propTypes = {
-	id: PropTypes.number.isRequired,
-	title: PropTypes.string.isRequired,
+	movie: PropTypes.object.isRequired
 }
 
 export default Movie

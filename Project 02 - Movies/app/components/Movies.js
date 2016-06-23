@@ -8,7 +8,7 @@ const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 class Movies extends Component {
 	renderMovie(movie) {
 		return (
-			<Movie id={movie.id} title={movie.title} overview={movie.overview} imageUrl={movie.poster_path}/>
+			<Movie movie={movie}/>
 		)
 	}
 

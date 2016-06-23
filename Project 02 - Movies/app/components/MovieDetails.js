@@ -14,11 +14,16 @@ class MovieDetails extends Component {
 	render() {
 		return (
 			<View style={styles.details}>
-				<Image 
-					source={{ uri: this.renderImageURL(this.props.imageUrl)}} 
-					style={{width: 185, height: 250}}
-				/>
-				<Text>{this.props.overview}</Text>
+				<View style={styles.top}>
+					<Image 
+						source={{ uri: this.renderImageURL(this.props.movie.poster_path)}} 
+						style={{width: 185, height: 250}}
+					/>
+					<Text>{this.props.movie.title}</Text>
+				</View>
+			<View style={styles.overview}>
+				<Text>{this.props.movie.overview}</Text>
+			</View>
 			</View>
 		)
 	}
@@ -26,12 +31,18 @@ class MovieDetails extends Component {
 
 var styles = StyleSheet.create({
 	details: {
-		paddingTop:65
+		paddingTop:65,
+	},
+	top: {
+		flexDirection: 'row'
+	},
+	overview: {
+		flexDirection: 'column'
 	}
 })
 
 MovieDetails.propTypes = {
-	overview: PropTypes.string.isRequired
+	movie: PropTypes.object.isRequired
 }
 
 export default MovieDetails
