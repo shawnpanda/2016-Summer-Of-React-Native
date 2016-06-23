@@ -29,11 +29,10 @@ export function receiveMovies(category, response) {
 function fetchMovies(category) {
 	return dispatch => {
 		dispatch(requestMovies())
-		return fetch('http://api.themoviedb.org/3/movie/popular?api_key=' + MOVIE_DB, {
+		return fetch('http://api.themoviedb.org/3/movie/' + category + '?api_key=' + MOVIE_DB, {
 			method: 'GET',
 			headers: {
-		    'Content-Type': 'application/json',
-		    'Host': 'api.themoviedb.org',
+		    'Content-Type': 'application/json'
 			}
 		})
 			.then(data => {
