@@ -1,6 +1,4 @@
 import { fakeFetchMovies } from '../api/index' 
-import { normalized } from '../helper/helper'
-
 export const SELECT_MOVIE = 'SELECT_MOVIE'
 export const REQUEST_MOVIES = 'REQUEST_MOVIES'
 export const RECEIVE_MOVIES = 'RECEIVE_MOVIES'
@@ -21,7 +19,8 @@ export function requestMovies() {
 export function receiveMovies(category, response) {
 	return {
 		type: RECEIVE_MOVIES,
-		response
+		movies: response,
+		category
 	}
 }
 
@@ -29,7 +28,6 @@ function fetchMovies(category) {
 	return dispatch => {
 		dispatch(requestMovies())
 		return fakeFetchMovies('popular')
-			.then(data => normalized(data))
 			.then(response =>dispatch(receiveMovies(category, response)))
 	}
 }
