@@ -1,5 +1,5 @@
 import React, { Component, PropTypes} from 'react'
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
 import { Actions } from 'react-native-router-flux'
 
 class Movie extends Component {
@@ -11,18 +11,20 @@ class Movie extends Component {
 						}) }
 		return (
 			<TouchableOpacity style={styles.movie} onPress={goViewDetails}>
-				<Text>Movie {this.props.movie.id}: {this.props.movie.title}</Text>
+				<Image 
+						source={{ uri: 'http://image.tmdb.org/t/p/w185/' + this.props.movie.poster_path}} 
+						style={styles.image}
+					/>
 			</TouchableOpacity>
 		)
 	}
 }
 
 var styles = StyleSheet.create({
-	movie: {
-		paddingTop: 5,
-		height: 30,
-		borderBottomWidth: 1,
-		borderBottomColor: '#000'
+	image: {
+		height: 200,
+		width:150,
+		flex:1
 	}
 })
 

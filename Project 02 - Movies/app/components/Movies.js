@@ -18,7 +18,7 @@ class Movies extends Component {
 		}
 		return (
 			<ListView 
-				style={styles.topContainer}
+				contentContainerStyle={styles.list}
 				dataSource={ds.cloneWithRows(this.props.movies)}
 				renderRow={this.renderMovie.bind(this)}
 			/>
@@ -27,6 +27,13 @@ class Movies extends Component {
 }
 
 var styles = StyleSheet.create({
+	list: {
+		justifyContent: 'space-around',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start',
+		paddingTop:60
+	},
 	topContainer: {
 		paddingTop:60
 	}
