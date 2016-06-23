@@ -22,8 +22,8 @@ class Movie extends Component {
 
 var styles = StyleSheet.create({
 	image: {
-		height: 200,
-		width:150,
+		height: 250,
+		width:180,
 		flex:1
 	}
 })
