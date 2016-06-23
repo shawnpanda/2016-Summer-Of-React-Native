@@ -6,6 +6,7 @@ class Movie extends Component {
 
 	render() {
 		const goViewDetails = () => { Actions.details({
+						title: this.props.movie.title,
 						movie: this.props.movie
 						}) }
 		return (
