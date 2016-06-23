@@ -11,18 +11,9 @@ class MoviesContainer extends Component {
 	}
 
 	render () {
-		const { movies } = this.props
+		const { isFetching, movies } = this.props
 		return (
-			<View>
-			<View>
-				<Movies movies={movies}/>
-			</View>
-			<View>
-				<TouchableOpacity onPress={fetchMoviesIfNeeded}>
-					<Text>REFRESH</Text>
-				</TouchableOpacity>
-			</View>
-			</View>
+			<Movies movies={movies} isFetching={isFetching}/>
 		)
 	}
 }
@@ -34,9 +25,10 @@ MoviesContainer.propTypes = {
 
 
 const mapStateToProps = (state) => {
-	const	{ movies } = state.movieData
+	const	{ isFetching, movies } = state.movieData
   return {
-    movies: movies
+    movies: movies,
+    isFetching: isFetching
   }
 }
 

@@ -13,9 +13,12 @@ class Movies extends Component {
 	}
 
 	render() {
+		if (this.props.isFetching) {
+			return (<View style={styles.topContainer}><Text>Loading .... </Text></View>)
+		}
 		return (
 			<ListView 
-				style={styles.list}
+				style={styles.topContainer}
 				dataSource={ds.cloneWithRows(this.props.movies)}
 				renderRow={this.renderMovie.bind(this)}
 			/>
@@ -24,7 +27,7 @@ class Movies extends Component {
 }
 
 var styles = StyleSheet.create({
-	list: {
+	topContainer: {
 		paddingTop:60
 	}
 })
