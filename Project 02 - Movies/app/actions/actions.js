@@ -37,6 +37,7 @@ export const fetchingNextPageMovies = () => {
 export function getMoviesNextPage(page) {
 	return dispatch => {
 		dispatch(fetchingNextPageMovies())
+		// Creates a separate copy or merge two
 	}
 }
 
