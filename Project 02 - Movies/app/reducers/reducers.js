@@ -1,21 +1,10 @@
 import { combineReducers } from 'redux'
-import { REQUEST_MOVIES, RECEIVE_MOVIES } from '../actions/actions'
-
-const initialMovies =[
-		{id: 1, title: 'move titile', 
-		overview: 'Located off the coast of Costa Rica, the Jurassic World luxury resort provides a habitat for an array of genetically engineered dinosaurs, including the vicious and intelligent Indominus rex. When the massive creature escapes, it sets off a chain reaction that causes the other dinos to run amok.', 
-		vote_average: 7},
-		{id: 2, title: 'move titile2', 
-		overview: "Years after the collapse of civilization, the tyrannical Immortan Joe enslaves apocalypse survivors inside the desert fortress the Citadel. When the warrior Imperator Furiosa (Charlize Theron) leads the despot's five wives in a daring escape, she forges an alliance with Max Rockatansky (Tom Hardy),", 
-		vote_average: 7},
-		{id: 3, title: 'move titile3', 
-		overview: "X-Men: Apocalypse is a 2016 American superhero film based on the fictional X-Men characters that appear in Marvel Comics. It is the ninth installment in the X-Men film series and a sequel to 2014's X-Men: Days of Future Past.", 
-		vote_average: 7}
-]
+import { REQUEST_MOVIES, RECEIVE_MOVIES, FETCHING_NEXT_PAGE_MOVIES } from '../actions/actions'
 
 function movieReducer(state = {
 	isFetching: false,
-	movies: initialMovies
+	isLoadingMore: false,
+	movies: []
 }, action) {
 	switch (action.type) {
 		case REQUEST_MOVIES:
@@ -26,6 +15,10 @@ function movieReducer(state = {
 			return Object.assign({}, state, {
 				isFetching: false,
 				movies: action.movies
+			})
+		case FETCHING_NEXT_PAGE_MOVIES:
+			return Object.assign({}, state, {
+				isLoadingMore: true
 			})
 		default:
 			return state
@@ -40,7 +33,8 @@ function page(state = 1, action) {
 }
 
 const movieApp = combineReducers({
-	movieData: movieReducer
+	movieData: movieReducer,
+	page
 })
 
 export default movieApp

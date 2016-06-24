@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import React, { Component, PropTypes } from 'react'
 import Movies from '../components/Movies'
-import { fetchMoviesIfNeeded } from '../actions/actions'
+import { fetchMoviesIfNeeded, getMoviesNextPage } from '../actions/actions'
 import { View, Text, TouchableOpacity } from 'react-native'
 
 class MoviesContainer extends Component {
@@ -10,10 +10,14 @@ class MoviesContainer extends Component {
 		console.log('component did mount')
 	}
 
-	render () {
-		const { isFetching, movies } = this.props
+  render () {
+		const { isFetching, movies, isLoadingMore, page } = this.props
 		return (
-			<Movies movies={movies} isFetching={isFetching}/>
+			<Movies movies={movies} 
+        isFetching={isFetching} 
+        isLoadingMore={isLoadingMore}
+        getMoviesNextPage={this.props.getMoviesNextPage(page)}
+      />
 		)
 	}
 }
@@ -25,16 +29,19 @@ MoviesContainer.propTypes = {
 
 
 const mapStateToProps = (state) => {
-	const	{ isFetching, movies } = state.movieData
+	const	{ isFetching, movies, isLoadingMore } = state.movieData
+  const { page } = state.page
   return {
-    movies: movies,
-    isFetching: isFetching
+    movies,
+    isFetching,
+    isLoadingMore,
+    page
   }
 }
 
 
 MoviesContainer = connect(mapStateToProps, {
-	fetchMoviesIfNeeded
+	fetchMoviesIfNeeded, getMoviesNextPage
 })(MoviesContainer)
 
 export default MoviesContainer

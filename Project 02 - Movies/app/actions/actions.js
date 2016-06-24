@@ -2,6 +2,7 @@ import { fakeFetchMovies } from '../api/index'
 export const SELECT_MOVIE = 'SELECT_MOVIE'
 export const REQUEST_MOVIES = 'REQUEST_MOVIES'
 export const RECEIVE_MOVIES = 'RECEIVE_MOVIES'
+export const FETCHING_NEXT_PAGE_MOVIES = 'FETCHING_NEXT_PAGE_MOVIES'
 
 const MOVIE_DB = '12d413ef356ab41e658251659e1ad04c'
 
@@ -18,11 +19,24 @@ export function requestMovies() {
 	}
 }
 
-export function receiveMovies(category, response) {
+export function receiveMovies(category, response, page) {
 	return {
 		type: RECEIVE_MOVIES,
 		movies: response,
-		category
+		category,
+		page
+	}
+}
+
+export const fetchingNextPageMovies = () => {
+	return {
+		type: FETCHING_NEXT_PAGE_MOVIES
+	}
+}
+
+export function getMoviesNextPage(page) {
+	return dispatch => {
+		dispatch(fetchingNextPageMovies())
 	}
 }
 
@@ -35,15 +49,8 @@ function fetchMovies(category) {
 		    'Content-Type': 'application/json'
 			}
 		})
-			.then(data => {
-				console.log(data)
-				return data.json()
-			})
-			.then(formatted => {
-				console.log(formatted.results)
-				return formatted.results
-			})
-			.then(response => dispatch(receiveMovies(category, response)))
+			.then(data => data.json())
+			.then(response => dispatch(receiveMovies(category, response.results, response.page)))
 			.catch((error) => {
 				console.warn(error)
 			})

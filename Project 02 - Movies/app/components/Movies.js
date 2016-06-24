@@ -6,10 +6,36 @@ import Movie from './Movie'
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
 class Movies extends Component {
+	constructor(props) {
+		super(props)
+
+		this.renderMovie = this.renderMovie.bind(this)
+		this.onEndReached = this.onEndReached.bind(this)
+		this.renderFooter = this.renderFooter.bind(this)
+	}
 	renderMovie(movie) {
 		return (
 			<Movie movie={movie}/>
 		)
+	}
+
+	onEndReached() {
+		if (this.props.isLoadingMore) {
+			return
+		}
+		this.props.getMoviesNextPage;
+	}
+
+	renderFooter() {
+		if (this.props.isLoadingMore) {
+			return (
+				<Text style={{marginVertical: 20}}>Loading More...</Text>
+			)
+		} else {
+			return (
+				<Text style={{marginVertical: 20}}>Need to trigger the load more function</Text>
+			)
+		}
 	}
 
 	render() {
@@ -20,7 +46,10 @@ class Movies extends Component {
 			<ListView 
 				contentContainerStyle={styles.list}
 				dataSource={ds.cloneWithRows(this.props.movies)}
-				renderRow={this.renderMovie.bind(this)}
+				renderRow={this.renderMovie}
+				onEndReached={this.onEndReached}
+				renderFooter={this.renderFooter}
+				enableEmptySections={true}
 			/>
 		)
 	}
@@ -43,7 +72,9 @@ Movies.propTypes = {
 	movies: PropTypes.arrayOf(PropTypes.shape({
 		id: PropTypes.number.isRequired,
 		title: PropTypes.string.isRequired
-	}).isRequired).isRequired
+	}).isRequired).isRequired,
+	isFetching: PropTypes.bool.isRequired,
+	isLoadingMore: PropTypes.bool.isRequired
 }
 
 export default Movies
