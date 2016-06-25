@@ -37,24 +37,25 @@ export const fetchingNextPageMovies = () => {
 export function getMoviesNextPage(movies, category, page) {
 	return dispatch => {
 		dispatch(fetchingNextPageMovies())
-		return fetch('http://api.themoviedb.org/3/movie/' + category 
-									+ '?api_key=' + MOVIE_DB + '&page=' + page, {
-			method: 'GET',
-			headers: {
-		    'Content-Type': 'application/json'
-			}
-		})
-			.then(data => data.json())
-			.then(response => {
-				var cachedData = movies
-				for (var i = 0; i < response.results.length; i++ ) {
-					cachedData.push(response.results[i])
-				}
-				dispatch(receiveMovies(category, cachedData, response.page))
-			})
-			.catch((error) => {
-				console.warn(error)
-			})
+		return dispatch(receiveMovies(category, movies.concat(movies) , page+1))
+		// return fetch('http://api.themoviedb.org/3/movie/' + category 
+		// 							+ '?api_key=' + MOVIE_DB + '&page=' + page, {
+		// 	method: 'GET',
+		// 	headers: {
+		//     'Content-Type': 'application/json'
+		// 	}
+		// })
+		// 	.then(data => data.json())
+		// 	.then(response => {
+		// 		var cachedData = movies
+		// 		for (var i = 0; i < response.results.length; i++ ) {
+		// 			cachedData.push(response.results[i])
+		// 		}
+		// 		dispatch(receiveMovies(category, cachedData, response.page))
+		// 	})
+		// 	.catch((error) => {
+		// 		console.warn(error)
+		// 	})
 	}
 }
 

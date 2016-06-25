@@ -20,10 +20,10 @@ class Movies extends Component {
 	}
 
 	onEndReached() {
-		if (this.props.movies.length === 0 || this.props.isFetching || this.props.isLoadingMore) {
+		if ( !this.props.movies.length || this.props.isFetching || this.props.isLoadingMore) {
 			return
 		}
-		this.props.getMoviesNextPage;
+		this.props.getMoviesNextPage(this.props.movies, 'popular', this.props.page);
 	}
 
 	renderFooter() {
@@ -74,7 +74,9 @@ Movies.propTypes = {
 		title: PropTypes.string.isRequired
 	}).isRequired).isRequired,
 	isFetching: PropTypes.bool.isRequired,
-	isLoadingMore: PropTypes.bool.isRequired
+	isLoadingMore: PropTypes.bool.isRequired,
+	getMoviesNextPage: PropTypes.func.isRequired,
+	page: PropTypes.number.isRequired
 }
 
 export default Movies

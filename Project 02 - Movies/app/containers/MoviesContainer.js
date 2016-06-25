@@ -9,13 +9,15 @@ class MoviesContainer extends Component {
 		this.props.fetchMoviesIfNeeded('popular')
 		console.log('component did mount')
 	}
-  
+
   render () {
 		const { isFetching, movies, isLoadingMore, page } = this.props
 		return (
 			<Movies movies={movies} 
         isFetching={isFetching} 
         isLoadingMore={isLoadingMore}
+        getMoviesNextPage={this.props.getMoviesNextPage}
+        page={page}
       />
 		)
 	}
