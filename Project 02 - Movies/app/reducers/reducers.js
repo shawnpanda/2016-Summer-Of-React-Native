@@ -4,7 +4,8 @@ import { REQUEST_MOVIES, RECEIVE_MOVIES, FETCHING_NEXT_PAGE_MOVIES } from '../ac
 function movieReducer(state = {
 	isFetching: false,
 	isLoadingMore: false,
-	movies: []
+	movies: [],
+	page: 1
 }, action) {
 	switch (action.type) {
 		case REQUEST_MOVIES:
@@ -14,7 +15,9 @@ function movieReducer(state = {
 		case RECEIVE_MOVIES:
 			return Object.assign({}, state, {
 				isFetching: false,
-				movies: action.movies
+				movies: action.movies,
+				page: action.page+1,
+				isLoadingMore: false
 			})
 		case FETCHING_NEXT_PAGE_MOVIES:
 			return Object.assign({}, state, {
@@ -25,16 +28,8 @@ function movieReducer(state = {
 	}
 }
 
-function page(state = 1, action) {
-	switch (action.type) {
-		default:
-			return state
-	}
-}
-
 const movieApp = combineReducers({
-	movieData: movieReducer,
-	page
+	movieData: movieReducer
 })
 
 export default movieApp

@@ -20,7 +20,7 @@ class Movies extends Component {
 	}
 
 	onEndReached() {
-		if (this.props.isLoadingMore) {
+		if (this.props.movies.length === 0 || this.props.isFetching || this.props.isLoadingMore) {
 			return
 		}
 		this.props.getMoviesNextPage;

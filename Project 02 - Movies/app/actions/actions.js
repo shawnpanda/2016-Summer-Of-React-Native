@@ -34,10 +34,27 @@ export const fetchingNextPageMovies = () => {
 	}
 }
 
-export function getMoviesNextPage(page) {
+export function getMoviesNextPage(movies, category, page) {
 	return dispatch => {
 		dispatch(fetchingNextPageMovies())
-		// Creates a separate copy or merge two
+		return fetch('http://api.themoviedb.org/3/movie/' + category 
+									+ '?api_key=' + MOVIE_DB + '&page=' + page, {
+			method: 'GET',
+			headers: {
+		    'Content-Type': 'application/json'
+			}
+		})
+			.then(data => data.json())
+			.then(response => {
+				var cachedData = movies
+				for (var i = 0; i < response.results.length; i++ ) {
+					cachedData.push(response.results[i])
+				}
+				dispatch(receiveMovies(category, cachedData, response.page))
+			})
+			.catch((error) => {
+				console.warn(error)
+			})
 	}
 }
 

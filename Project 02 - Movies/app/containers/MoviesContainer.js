@@ -9,14 +9,13 @@ class MoviesContainer extends Component {
 		this.props.fetchMoviesIfNeeded('popular')
 		console.log('component did mount')
 	}
-
+  
   render () {
 		const { isFetching, movies, isLoadingMore, page } = this.props
 		return (
 			<Movies movies={movies} 
         isFetching={isFetching} 
         isLoadingMore={isLoadingMore}
-        getMoviesNextPage={this.props.getMoviesNextPage(page)}
       />
 		)
 	}
@@ -29,8 +28,7 @@ MoviesContainer.propTypes = {
 
 
 const mapStateToProps = (state) => {
-	const	{ isFetching, movies, isLoadingMore } = state.movieData
-  const { page } = state.page
+	const	{ isFetching, movies, isLoadingMore, page } = state.movieData
   return {
     movies,
     isFetching,
