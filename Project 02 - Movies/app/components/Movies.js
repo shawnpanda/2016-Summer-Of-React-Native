@@ -23,7 +23,7 @@ class Movies extends Component {
 		if ( !this.props.movies.length || this.props.isFetching || this.props.isLoadingMore) {
 			return
 		}
-		this.props.getMoviesNextPage(this.props.movies, 'popular', this.props.page);
+		this.props.getMoviesNextPage('popular', this.props.movies, this.props.page);
 	}
 
 	renderFooter() {

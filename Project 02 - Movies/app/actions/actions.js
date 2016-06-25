@@ -4,6 +4,8 @@ export const REQUEST_MOVIES = 'REQUEST_MOVIES'
 export const RECEIVE_MOVIES = 'RECEIVE_MOVIES'
 export const FETCHING_NEXT_PAGE_MOVIES = 'FETCHING_NEXT_PAGE_MOVIES'
 
+
+const MOVIE_API = 'http://api.themoviedb.org/3/movie/'
 const MOVIE_DB = '12d413ef356ab41e658251659e1ad04c'
 
 export function selectMovie(movie) {
@@ -34,11 +36,11 @@ export const fetchingNextPageMovies = () => {
 	}
 }
 
-export function getMoviesNextPage(movies, category, page) {
+function fetchMovies(category, movies = [], page = 1) {
 	return dispatch => {
-		dispatch(fetchingNextPageMovies())
-		return fetch('http://api.themoviedb.org/3/movie/' + category 
-									+ '?api_key=' + MOVIE_DB + '&page=' + page, {
+		return fetch(MOVIE_API + category + 
+								'?api_key=' + MOVIE_DB + 
+								'&page=' + page, {
 			method: 'GET',
 			headers: {
 		    'Content-Type': 'application/json'
@@ -46,11 +48,10 @@ export function getMoviesNextPage(movies, category, page) {
 		})
 			.then(data => data.json())
 			.then(response => {
-				var cachedData = movies
 				for (var i = 0; i < response.results.length; i++ ) {
-					cachedData.push(response.results[i])
+					movies.push(response.results[i])
 				}
-				dispatch(receiveMovies(category, cachedData, response.page))
+				dispatch(receiveMovies(category, movies, response.page))
 			})
 			.catch((error) => {
 				console.warn(error)
@@ -58,25 +59,16 @@ export function getMoviesNextPage(movies, category, page) {
 	}
 }
 
-function fetchMovies(category) {
+export function getMoviesNextPage(category, movies, page) {
 	return dispatch => {
-		dispatch(requestMovies())
-		return fetch('http://api.themoviedb.org/3/movie/' + category + '?api_key=' + MOVIE_DB, {
-			method: 'GET',
-			headers: {
-		    'Content-Type': 'application/json'
-			}
-		})
-			.then(data => data.json())
-			.then(response => dispatch(receiveMovies(category, response.results, response.page)))
-			.catch((error) => {
-				console.warn(error)
-			})
+		dispatch(fetchingNextPageMovies())
+		return dispatch(fetchMovies(category, movies, page))
 	}
 }
 
 export function fetchMoviesIfNeeded(category) {
 	return dispatch => {
+		dispatch(requestMovies())
 		return dispatch(fetchMovies(category))
 	}
 }
