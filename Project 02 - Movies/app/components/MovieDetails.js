@@ -20,7 +20,7 @@ class MovieDetails extends Component {
 						style={styles.image}
 					/>
 					<View style={styles.textContainer}>
-						<Text>{this.props.movie.title}</Text>
+						<Text style={styles.title}>{this.props.movie.title}</Text>
 						<Text>{this.props.movie.release_date}</Text>
 						<Text>{this.props.movie.vote_average}/10</Text>
 					</View>
@@ -46,13 +46,20 @@ var styles = StyleSheet.create({
 		width: 185,
 		height: 250
 	},
+	title: {
+		fontSize: 20,
+		fontWeight: "500"
+	},
 	textContainer: {
 		flex: 1,
 		alignSelf: 'center',
 		alignItems: 'center'
 	},
 	overview: {
-		flexDirection: 'column'
+		flexDirection: 'column',
+		paddingTop: 15,
+		paddingLeft: 20,
+		paddingRight: 20
 	}
 })
 
