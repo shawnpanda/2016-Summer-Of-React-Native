@@ -7,7 +7,6 @@ import { View, Text, TouchableOpacity } from 'react-native'
 class MoviesContainer extends Component {
 	componentDidMount() {
 		this.props.fetchMoviesIfNeeded('popular')
-		console.log('component did mount')
 	}
 
   render () {
