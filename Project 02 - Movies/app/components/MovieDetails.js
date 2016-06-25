@@ -26,6 +26,7 @@ class MovieDetails extends Component {
 					</View>
 				</View>
 				<View style={styles.overview}>
+					<Text>Trail URL is {this.props.movie.trailerURL}</Text>
 					<Text>{this.props.movie.overview}</Text>
 				</View>
 			</View>

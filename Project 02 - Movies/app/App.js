@@ -5,7 +5,7 @@ import { Provider, connect } from 'react-redux'
 import configureStore from './store/configureStore'
 
 import MoviesContainer from './containers/MoviesContainer'
-import MovieDetails from './components/MovieDetails'
+import MovieDetailsContainer from './containers/MovieDetailsContainer'
 
 let store = configureStore()
 
@@ -17,7 +17,7 @@ class MovieApp extends Component {
 			<Provider store={store}>
 				<RouterWithRedux>
 					<Scene key='home' component={MoviesContainer} title='Home' initial={true}/> 
-					<Scene key='details' component={MovieDetails} title='Details'/>
+					<Scene key='details' component={MovieDetailsContainer} title='Details'/>
 				</RouterWithRedux>
 			</Provider>
 		)

@@ -1,5 +1,6 @@
 import { fakeFetchMovies } from '../api/index' 
 export const SELECT_MOVIE = 'SELECT_MOVIE'
+export const FETCHED_TRAILER = 'FETCHED_TRAILER'
 export const REQUEST_MOVIES = 'REQUEST_MOVIES'
 export const RECEIVE_MOVIES = 'RECEIVE_MOVIES'
 export const FETCHING_NEXT_PAGE_MOVIES = 'FETCHING_NEXT_PAGE_MOVIES'
@@ -8,10 +9,27 @@ export const FETCHING_NEXT_PAGE_MOVIES = 'FETCHING_NEXT_PAGE_MOVIES'
 const MOVIE_API = 'http://api.themoviedb.org/3/movie/'
 const MOVIE_DB = '12d413ef356ab41e658251659e1ad04c'
 
-export function selectMovie(movie) {
-	return {
-		type: SELECT_MOVIE,
-		movie
+export function selectMovie(id) {
+	return dispatch => {
+		return fetch(MOVIE_API + id + '/videos?api_key=' + MOVIE_DB, {
+			method: 'GET',
+			headers: {
+		    'Content-Type': 'application/json'
+			}
+		})
+			.then(data => data.json())
+			.then(response => dispatch(fetchedTrailer(id, response.results[0].key)))
+			.catch((error) => {
+				console.warn(error)
+			})
+	}
+}
+
+function fetchedTrailer(id, trailerURL) {
+		return {
+		type: FETCHED_TRAILER,
+		id,
+		trailerURL
 	}
 }
 
