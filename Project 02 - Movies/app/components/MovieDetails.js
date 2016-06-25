@@ -30,11 +30,8 @@ class MovieDetails extends Component {
 					</View>
 				</View>
 				<View style={styles.overview}>
-					<Text>this.props.movie.id is {this.props.realMovie.id}</Text>
-					<Text>this.props.hid is {this.props.hid}</Text>
-					<Text>this.props.faq is {this.props.faq}</Text>
+						<Text>Its id is {this.props.movie.id}</Text>
 					<Text>this.props.title is {this.props.title}</Text>
-					<Text>this.props.realMovie.trailerURL is {this.props.realMovie.trailerURL}</Text>
 					<Text>this.props.movie.trailerURL is {this.props.movie.trailerURL}</Text>
 					<Text>{this.props.movie.overview}</Text>
 				</View>

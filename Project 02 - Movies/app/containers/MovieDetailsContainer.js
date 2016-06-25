@@ -6,9 +6,10 @@ import { selectMovie } from '../actions/actions'
 
 const mapStateToProps = ( state, ownProps) => {
   const { movies } = state.movieData
-  return {
-    title: ownProps.title,
-    realMovie: ownProps.movie
+  for (var i = 0; i<movies.length; i++) {
+    if (movies[i].id == ownProps.movieId) {
+      return { movie: movies[i] }
+    }
   }
 }
 

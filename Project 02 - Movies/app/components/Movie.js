@@ -6,8 +6,7 @@ class Movie extends Component {
 	render() {
 		const goViewDetails = () => { Actions.details({
 						title: this.props.movie.title,
-						movie: this.props.movie,
-						hid: this.props.movie.id
+						movieId: this.props.movie.id
 						}) }
 		return (
 			<TouchableOpacity style={styles.movie} onPress={goViewDetails}>
