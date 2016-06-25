@@ -18,7 +18,7 @@ export function selectMovie(id) {
 			}
 		})
 			.then(data => data.json())
-			.then(response => dispatch(fetchedTrailer(id, response.results[0].key)))
+			.then(response => dispatch(fetchedTrailer(id, 'SUXWAEX2jlg')))
 			.catch((error) => {
 				console.warn(error)
 			})

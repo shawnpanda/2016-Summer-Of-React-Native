@@ -4,14 +4,18 @@ import MovieDetails from '../components/MovieDetails'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { selectMovie } from '../actions/actions'
 
-class MovieDetailsContainer extends Component {
-  componentDidMount() {
-    this.props.selectMovie(this.props.movie.id)
+const mapStateToProps = ( state, ownProps) => {
+  const { movies } = state.movieData
+  return {
+    title: ownProps.title,
+    realMovie: ownProps.movie
   }
 }
 
+const MovieDetailsContainer = connect(mapStateToProps, {
+  selectMovie
+})(MovieDetails)
 
-MovieDetailsContainer = connect()(MovieDetails)
 
 
 export default MovieDetailsContainer

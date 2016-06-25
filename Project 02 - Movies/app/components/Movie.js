@@ -3,11 +3,11 @@ import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
 import { Actions } from 'react-native-router-flux'
 
 class Movie extends Component {
-
 	render() {
 		const goViewDetails = () => { Actions.details({
 						title: this.props.movie.title,
-						movie: this.props.movie
+						movie: this.props.movie,
+						hid: this.props.movie.id
 						}) }
 		return (
 			<TouchableOpacity style={styles.movie} onPress={goViewDetails}>

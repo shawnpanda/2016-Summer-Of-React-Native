@@ -1,6 +1,15 @@
 import { combineReducers } from 'redux'
 import { REQUEST_MOVIES, RECEIVE_MOVIES, FETCHING_NEXT_PAGE_MOVIES, FETCHED_TRAILER } from '../actions/actions'
 
+function addTrailer(movie, action) {
+	switch (action.type) {
+		case FETCHED_TRAILER:
+			return movie.id === action.id ?
+						Object.assign({}, movie, { trailerURL: action.trailerURL }) :
+						movie
+	}
+}
+
 function movieReducer(state = {
 	isFetching: false,
 	isLoadingMore: false,
@@ -24,11 +33,11 @@ function movieReducer(state = {
 				isLoadingMore: true
 			})
 		case FETCHED_TRAILER:
-			return state.movies.map(movie => 
-				movie.id === action.id ?
-					Object.assign({}, movie, { trailerURL: action.trailerURL }) :
-					movie
-			)
+			return Object.assign({}, state, {
+				movies: state.movies.map(movie => 
+					addTrailer(movie, action)
+				)
+			})
 		default:
 			return state
 	}
