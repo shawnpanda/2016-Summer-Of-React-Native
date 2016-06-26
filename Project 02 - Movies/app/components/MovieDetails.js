@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, ScrollView } from 'react-native'
 
 class MovieDetails extends Component {
 	constructor(props) {
@@ -18,6 +18,7 @@ class MovieDetails extends Component {
 	render() {
 		return (
 			<View style={styles.details}>
+				<ScrollView style={styles.scrollView}>
 				<View style={styles.topContainer}>
 					<Image 
 						source={{ uri: this.renderImageURL(this.props.movie.poster_path)}} 
@@ -35,6 +36,7 @@ class MovieDetails extends Component {
 					<Text>this.props.movie.trailerURL is {this.props.movie.trailerURL}</Text>
 					<Text>{this.props.movie.overview}</Text>
 				</View>
+				</ScrollView>
 			</View>
 		)
 	}
@@ -48,6 +50,9 @@ var styles = StyleSheet.create({
 		flexDirection: 'row',
 		flex: 2
 	},
+	scrollView: {
+    height: 500,
+  },
 	image: {
 		flex: 1,
 		width: 185,
