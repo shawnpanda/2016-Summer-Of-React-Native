@@ -1,7 +1,6 @@
 /**
  * Jokes App
- * https://github.com/facebook/react-native
- * @flow
+ * https://github.com/shawniscool/2016-Summer-Of-React-Native/tree/master/Project%2003%20-%20Jokes
  */
 
 'use strict'
@@ -13,69 +12,21 @@ import {
   View,
   TouchableHighlight
 } from 'react-native';
-var t = require('tcomb-form-native');
-
-var Form = t.form.Form;
-
-var Person = t.struct({
-  FirstName: t.String,
-  LastName: t.String
-})
+import SignIn from './components/form'
 
 var JokesApp = React.createClass({
 
-  getInitialState: function() {
-    return {FirstName:'', LastName:''};
-  },
-
-  onPress() {
-    var value = this.refs.form.getValue();
-    if (value) { // if validation fails, value will be null
-      console.log(value); // value here is an instance of Person
-      this.setState({
-        FirstName: value.FirstName,
-        LastName: value.LastName,
-      })
-    }
-  },
 
   render() {
     return (
-      <View style={styles.container}>
-        <Form
-          ref="form"
-          type={Person}
-        />
-        <TouchableHighlight style={styles.button} onPress={this.onPress} underlayColor='#99d9f4'>
-          <Text style={styles.buttonText}>Save</Text>
-        </TouchableHighlight>
-        <Text>this.state.FirstName is {this.state.FirstName}</Text>
+      <View>
+      <SignIn />
       </View>
     );
   }
 })
 
 const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    marginTop: 50,
-    padding: 20,
-  },
-  buttonText: {
-    fontSize: 18,
-    color: 'white',
-    alignSelf: 'center'
-  },
-  button: {
-    height: 36,
-    backgroundColor: '#48BBEC',
-    borderColor: '#48BBEC',
-    borderWidth: 1,
-    borderRadius: 8,
-    marginBottom: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
-  }
 });
 
 export default JokesApp
