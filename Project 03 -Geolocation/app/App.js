@@ -1,18 +1,16 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
+ * GeoApp app
+ * https://github.com/shawniscool/2016-Summer-Of-React-Native/tree/master/GeoApp
  */
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View
 } from 'react-native';
 
-class Geolocation extends Component {
+class GeoApp extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -49,4 +47,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('Geolocation', () => Geolocation);
+export default GeoApp
