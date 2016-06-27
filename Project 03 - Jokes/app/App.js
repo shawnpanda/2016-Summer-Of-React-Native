@@ -7,32 +7,33 @@
 
 import React, { Component } from 'react';
 import {
-  StyleSheet,
   Text,
   View,
-  TouchableHighlight
 } from 'react-native';
-import SignIn from './components/form'
+import { Provider, connect } from 'react-redux'
+import { createStore } from 'redux'
+import jokesApp from './reducers/index'
+import FormContainer from './containers/FormContainer'
+
+const store = createStore(jokesApp)
+if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept('./reducers/index', () => {
+      const nextRootReducer = require('./reducers/index').default;
+      store.replaceReducer(nextRootReducer);
+    });
+}
+
 
 var JokesApp = React.createClass({
-  getInitialState: function() {
-    return {FirstName:'', LastName:''};
-  },
 
   render() {
     return (
-      <View>
-      <SignIn 
-        FirstName={this.state.FirstName}
-        LastName={this.state.LastName}
-      />
-      <Text>parent's state.FirstName is {this.state.FirstName}</Text>
-      </View>
+      <Provider store={store}>
+        <FormContainer />
+      </Provider>
     );
   }
 })
-
-const styles = StyleSheet.create({
-});
 
 export default JokesApp

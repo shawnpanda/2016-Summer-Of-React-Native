@@ -12,6 +12,8 @@ function submitName(state={
         FirstName: state.FirstName,
         LastName: state.LastName
       })
+    default:
+      return state
   }
 }
 
