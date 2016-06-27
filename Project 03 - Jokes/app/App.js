@@ -4,6 +4,8 @@
  * @flow
  */
 
+'use strict'
+
 import React, { Component } from 'react';
 import {
   StyleSheet,
@@ -20,7 +22,23 @@ var Person = t.struct({
   LastName: t.String
 })
 
-class JokesApp extends Component {
+var JokesApp = React.createClass({
+
+  getInitialState: function() {
+    return {FirstName:'', LastName:''};
+  },
+
+  onPress() {
+    var value = this.refs.form.getValue();
+    if (value) { // if validation fails, value will be null
+      console.log(value); // value here is an instance of Person
+      this.setState({
+        FirstName: value.FirstName,
+        LastName: value.LastName,
+      })
+    }
+  },
+
   render() {
     return (
       <View style={styles.container}>
@@ -31,10 +49,11 @@ class JokesApp extends Component {
         <TouchableHighlight style={styles.button} onPress={this.onPress} underlayColor='#99d9f4'>
           <Text style={styles.buttonText}>Save</Text>
         </TouchableHighlight>
+        <Text>this.state.FirstName is {this.state.FirstName}</Text>
       </View>
     );
   }
-}
+})
 
 const styles = StyleSheet.create({
   container: {
