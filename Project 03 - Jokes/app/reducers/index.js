@@ -18,7 +18,7 @@ function submitName(state={
 }
 
 const jokesApp = combineReducers({
-  submitName
+  person: submitName
 })
 
 export default jokesApp

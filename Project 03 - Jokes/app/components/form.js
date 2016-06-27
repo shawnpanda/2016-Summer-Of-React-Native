@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
   StyleSheet,
   Text,
@@ -16,21 +16,17 @@ var Person = t.struct({
 
 
 var SignIn = React.createClass({
-
-  getInitialState: function() {
-    return {FirstName:this.props.FirstName, LastName:this.props.LastName};
+  propType: {
+    FirstName: PropTypes.string.isRequired,
+    LastName: PropTypes.string.isRequired,
+    submitName: PropTypes.func.isRequired
   },
 
   onPress() {
     var value = this.refs.form.getValue();
     if (value) { // if validation fails, value will be null
-      console.log(value); // value here is an instance of Person
-      this.props.FirstName = value.FirstName;
-      this.props.LastName = value.LastName
-      this.setState({
-        FirstName: value.FirstName,
-        LastName: value.LastName,
-      })
+      this.props.submitName(value.FirstName, value.LastName);
+      this.setState({ value: null });
     }
   },
 
@@ -44,7 +40,7 @@ var SignIn = React.createClass({
         <TouchableHighlight style={styles.button} onPress={this.onPress} underlayColor='#99d9f4'>
           <Text style={styles.buttonText}>Save</Text>
         </TouchableHighlight>
-      <Text>this.state.FirstName is {this.state.FirstName}</Text>
+        <Text>this.props.FirstName is {this.props.FirstName}</Text>
       </View>
     );
   }
