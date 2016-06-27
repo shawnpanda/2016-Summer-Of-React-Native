@@ -11,19 +11,10 @@ import {
   View,
 } from 'react-native';
 import { Provider, connect } from 'react-redux'
-import { createStore } from 'redux'
-import jokesApp from './reducers/index'
 import FormContainer from './containers/FormContainer'
+import configureStore from './store/configureStore'
 
-const store = createStore(jokesApp)
-if (module.hot) {
-    // Enable Webpack hot module replacement for reducers
-    module.hot.accept('./reducers/index', () => {
-      const nextRootReducer = require('./reducers/index').default;
-      store.replaceReducer(nextRootReducer);
-    });
-}
-
+const store = configureStore()
 
 var JokesApp = React.createClass({
 
