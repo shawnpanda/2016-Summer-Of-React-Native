@@ -15,12 +15,18 @@ import {
 import SignIn from './components/form'
 
 var JokesApp = React.createClass({
-
+  getInitialState: function() {
+    return {FirstName:'', LastName:''};
+  },
 
   render() {
     return (
       <View>
-      <SignIn />
+      <SignIn 
+        FirstName={this.state.FirstName}
+        LastName={this.state.LastName}
+      />
+      <Text>parent's state.FirstName is {this.state.FirstName}</Text>
       </View>
     );
   }

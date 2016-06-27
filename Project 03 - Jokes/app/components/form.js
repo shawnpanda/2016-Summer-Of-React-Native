@@ -18,13 +18,15 @@ var Person = t.struct({
 var SignIn = React.createClass({
 
   getInitialState: function() {
-    return {FirstName:'', LastName:''};
+    return {FirstName:this.props.FirstName, LastName:this.props.LastName};
   },
 
   onPress() {
     var value = this.refs.form.getValue();
     if (value) { // if validation fails, value will be null
       console.log(value); // value here is an instance of Person
+      this.props.FirstName = value.FirstName;
+      this.props.LastName = value.LastName
       this.setState({
         FirstName: value.FirstName,
         LastName: value.LastName,
