@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux'
 import { SUBMIT_NAME } from '../actions/index'
 
-
 function submitName(state = {
   FirstName: '',
   LastName: ''
