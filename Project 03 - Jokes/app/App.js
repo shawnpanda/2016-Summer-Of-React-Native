@@ -11,8 +11,8 @@ import {
   View,
 } from 'react-native';
 import { Provider, connect } from 'react-redux'
-import FormContainer from './containers/FormContainer'
 import configureStore from './store/configureStore'
+import AppContainer from './containers/AppContainer'
 
 const store = configureStore()
 
@@ -21,7 +21,7 @@ var JokesApp = React.createClass({
   render() {
     return (
       <Provider store={store}>
-        <FormContainer />
+        <AppContainer />
       </Provider>
     );
   }
