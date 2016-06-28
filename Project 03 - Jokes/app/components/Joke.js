@@ -20,7 +20,7 @@ var Joke = React.createClass({
     return {
       x: 0,
       y: 0,
-      joke: ''
+      joke: this.renderJoke()
     }
   },
 
@@ -58,9 +58,7 @@ var Joke = React.createClass({
 
   _onStartShouldSetResponder: function(e, gestureState) {
     this.dragging = true;
-    //Setup initial drag coordinates
     this.rotateTop = e.nativeEvent.locationY <= 300
-    console.log("nativeEvent.locationY is " + e.nativeEvent.locationY)
     return true;
   },
 
@@ -69,8 +67,6 @@ var Joke = React.createClass({
     if (this.dragging) {
       transform.push({rotate: this.getRotationDegree(this.rotateTop, this.state.x)})
     }
-    // console.log('this.rotateTop is ' + this.rotateTop + ' and dragging is ' + this.dragging)
-
     return {transform: transform};
   },
 

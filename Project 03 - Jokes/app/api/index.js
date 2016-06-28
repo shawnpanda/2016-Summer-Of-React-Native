@@ -23,7 +23,7 @@ export const jokes =
       },
       {
          "id":4,
-         "joke":"If you ask Chuck Norris what time it is, he always answers &quot;Two seconds till&quot;. After you ask &quot;Two seconds to what?&quot;, he roundhouse kicks you in the face.",
+         "joke":"If you ask Chuck Norris what time it is, he always answers \"Two seconds till\". After you ask \"Two seconds to what?\", he roundhouse kicks you in the face.",
          "categories":[
 
          ]
@@ -51,7 +51,7 @@ export const jokes =
       },
       {
          "id":13,
-         "joke":"Chuck Norris once challenged Lance Armstrong in a &quot;Who has more testicles?&quot; contest. Chuck Norris won by 5.",
+         "joke":"Chuck Norris once challenged Lance Armstrong in a \"Who has more testicles?\" contest. Chuck Norris won by 5.",
          "categories":[
             "explicit"
          ]
@@ -86,7 +86,7 @@ export const jokes =
       },
       {
          "id":18,
-         "joke":"According to the Encyclopedia Brittanica, the Native American &quot;Trail of Tears&quot; has been redefined as anywhere that Chuck Norris walks.",
+         "joke":"According to the Encyclopedia Brittanica, the Native American \"Trail of Tears\" has been redefined as anywhere that Chuck Norris walks.",
          "categories":[
 
          ]
@@ -121,7 +121,7 @@ export const jokes =
       },
       {
          "id":24,
-         "joke":"Chuck Norris can hit you so hard that he can actually alter your DNA. Decades from now your descendants will occasionally clutch their heads and yell &quot;What The Hell was That?&quot;.",
+         "joke":"Chuck Norris can hit you so hard that he can actually alter your DNA. Decades from now your descendants will occasionally clutch their heads and yell \"What The Hell was That?\".",
          "categories":[
 
          ]
@@ -177,14 +177,14 @@ export const jokes =
       },
       {
          "id":33,
-         "joke":"Chuck Norris once shot down a German fighter plane with his finger. By yelling &quot;Bang!&quot;",
+         "joke":"Chuck Norris once shot down a German fighter plane with his finger. By yelling \"Bang!\"",
          "categories":[
 
          ]
       },
       {
          "id":34,
-         "joke":"The opening scene of the movie &quot;Saving Private Ryan&quot; is loosely based on games of dodgeball Chuck Norris played in second grade.",
+         "joke":"The opening scene of the movie \"Saving Private Ryan\" is loosely based on games of dodgeball Chuck Norris played in second grade.",
          "categories":[
 
          ]
@@ -198,7 +198,7 @@ export const jokes =
       },
       {
          "id":36,
-         "joke":"Chuck Norris originally appeared in the &quot;Street Fighter II&quot; video game, but was removed by Beta Testers because every button caused him to do a roundhouse kick. When asked about this glitch, Norris replied &quot;That's no glitch.&quot;",
+         "joke":"Chuck Norris originally appeared in the \"Street Fighter II\" video game, but was removed by Beta Testers because every button caused him to do a roundhouse kick. When asked about this glitch, Norris replied \"That's no glitch.\"",
          "categories":[
             "nerdy"
          ]
@@ -289,7 +289,7 @@ export const jokes =
       },
       {
          "id":49,
-         "joke":"CNN was originally created as the &quot;Chuck Norris Network&quot; to update Americans with on-the-spot ass kicking in real-time.",
+         "joke":"CNN was originally created as the \"Chuck Norris Network\" to update Americans with on-the-spot ass kicking in real-time.",
          "categories":[
 
          ]
@@ -324,7 +324,7 @@ export const jokes =
       },
       {
          "id":54,
-         "joke":"If you ask Chuck Norris what time it is, he always says, &quot;Two seconds 'til.&quot; After you ask, &quot;Two seconds 'til what?&quot; he roundhouse kicks you in the face.",
+         "joke":"If you ask Chuck Norris what time it is, he always says, \"Two seconds 'til.\" After you ask, \"Two seconds 'til what?\" he roundhouse kicks you in the face.",
          "categories":[
 
          ]
@@ -401,7 +401,7 @@ export const jokes =
       },
       {
          "id":66,
-         "joke":"Chuck Norris can't finish a &quot;color by numbers&quot; because his markers are filled with the blood of his victims. Unfortunately, all blood is dark red.",
+         "joke":"Chuck Norris can't finish a \"color by numbers\" because his markers are filled with the blood of his victims. Unfortunately, all blood is dark red.",
          "categories":[
 
          ]
@@ -534,7 +534,7 @@ export const jokes =
       },
       {
          "id":86,
-         "joke":"Wilt Chamberlain claims to have slept with more than 20,000 women in his lifetime. Chuck Norris calls this &quot;a slow Tuesday.&quot;",
+         "joke":"Wilt Chamberlain claims to have slept with more than 20,000 women in his lifetime. Chuck Norris calls this \"a slow Tuesday.\"",
          "categories":[
 
          ]
@@ -569,7 +569,7 @@ export const jokes =
       },
       {
          "id":91,
-         "joke":"When taking the SAT, write &quot;Chuck Norris&quot; for every answer. You will score over 8000.",
+         "joke":"When taking the SAT, write \"Chuck Norris\" for every answer. You will score over 8000.",
          "categories":[
 
          ]
@@ -618,7 +618,7 @@ export const jokes =
       },
       {
          "id":98,
-         "joke":"In the beginning there was nothing...then Chuck Norris Roundhouse kicked that nothing in the face and said &quot;Get a job&quot;. That is the story of the universe.",
+         "joke":"In the beginning there was nothing...then Chuck Norris Roundhouse kicked that nothing in the face and said \"Get a job\". That is the story of the universe.",
          "categories":[
 
          ]
@@ -639,7 +639,7 @@ export const jokes =
       },
       {
          "id":101,
-         "joke":"Archeologists unearthed an old english dictionary dating back to the year 1236. It defined &quot;victim&quot; as &quot;one who has encountered Chuck Norris&quot;",
+         "joke":"Archeologists unearthed an old english dictionary dating back to the year 1236. It defined \"victim\" as \"one who has encountered Chuck Norris\"",
          "categories":[
 
          ]
@@ -660,7 +660,7 @@ export const jokes =
       },
       {
          "id":104,
-         "joke":"If you Google search &quot;Chuck Norris getting his ass kicked&quot; you will generate zero results. It just doesn't happen.",
+         "joke":"If you Google search \"Chuck Norris getting his ass kicked\" you will generate zero results. It just doesn't happen.",
          "categories":[
 
          ]
@@ -842,7 +842,7 @@ export const jokes =
       },
       {
          "id":131,
-         "joke":"Scotty in Star Trek often says &quot;Ye cannae change the laws of physics.&quot; This is untrue. Chuck Norris can change the laws of physics. With his fists.",
+         "joke":"Scotty in Star Trek often says \"Ye cannae change the laws of physics.\" This is untrue. Chuck Norris can change the laws of physics. With his fists.",
          "categories":[
 
          ]
@@ -884,7 +884,7 @@ export const jokes =
       },
       {
          "id":137,
-         "joke":"Tom Clancy has to pay royalties to Chuck Norris because &quot;The Sum of All Fears&quot; is the name of Chuck Norris' autobiography.",
+         "joke":"Tom Clancy has to pay royalties to Chuck Norris because \"The Sum of All Fears\" is the name of Chuck Norris' autobiography.",
          "categories":[
 
          ]
@@ -919,7 +919,7 @@ export const jokes =
       },
       {
          "id":143,
-         "joke":"Chuck Norris eats beef jerky and craps gunpowder. Then, he uses that gunpowder to make a bullet, which he uses to kill a cow and make more beef jerky. Some people refer to this as the &quot;Circle of Life.&quot;",
+         "joke":"Chuck Norris eats beef jerky and craps gunpowder. Then, he uses that gunpowder to make a bullet, which he uses to kill a cow and make more beef jerky. Some people refer to this as the \"Circle of Life.\"",
          "categories":[
 
          ]
@@ -940,7 +940,7 @@ export const jokes =
       },
       {
          "id":146,
-         "joke":"The crossing lights in Chuck Norris's home town say &quot;Die slowly&quot; and &quot;die quickly&quot;. They each have a picture of Chuck Norris punching or kicking a pedestrian.",
+         "joke":"The crossing lights in Chuck Norris's home town say \"Die slowly\" and \"die quickly\". They each have a picture of Chuck Norris punching or kicking a pedestrian.",
          "categories":[
 
          ]
@@ -975,21 +975,21 @@ export const jokes =
       },
       {
          "id":153,
-         "joke":"The movie &quot;Delta Force&quot; was extremely hard to make because Chuck had to downplay his abilities. The first few cuts were completely unbelievable.",
+         "joke":"The movie \"Delta Force\" was extremely hard to make because Chuck had to downplay his abilities. The first few cuts were completely unbelievable.",
          "categories":[
 
          ]
       },
       {
          "id":154,
-         "joke":"Movie trivia: The movie &quot;Invasion U.S.A.&quot; is, in fact, a documentary.",
+         "joke":"Movie trivia: The movie \"Invasion U.S.A.\" is, in fact, a documentary.",
          "categories":[
 
          ]
       },
       {
          "id":155,
-         "joke":"Chuck Norris does not &quot;style&quot; his hair. It lays perfectly in place out of sheer terror.",
+         "joke":"Chuck Norris does not \"style\" his hair. It lays perfectly in place out of sheer terror.",
          "categories":[
 
          ]
@@ -1045,7 +1045,7 @@ export const jokes =
       },
       {
          "id":164,
-         "joke":"Chuck Norris once sued Burger King after they refused to put razor wire in his Whopper Jr, insisting that that actually is &quot;his&quot; way.",
+         "joke":"Chuck Norris once sued Burger King after they refused to put razor wire in his Whopper Jr, insisting that that actually is \"his\" way.",
          "categories":[
 
          ]
@@ -1087,7 +1087,7 @@ export const jokes =
       },
       {
          "id":170,
-         "joke":"Wo hu cang long. The translation from Mandarin Chinese reads: &quot;Crouching Chuck, Hidden Norris&quot;",
+         "joke":"Wo hu cang long. The translation from Mandarin Chinese reads: \"Crouching Chuck, Hidden Norris\"",
          "categories":[
 
          ]
@@ -1157,7 +1157,7 @@ export const jokes =
       },
       {
          "id":180,
-         "joke":"When J. Robert Oppenheimer said &quot;I am become death, the destroyer Of worlds&quot;, He was not referring to the atomic bomb. He was referring to the Chuck Norris halloween costume he was wearing.",
+         "joke":"When J. Robert Oppenheimer said \"I am become death, the destroyer Of worlds\", He was not referring to the atomic bomb. He was referring to the Chuck Norris halloween costume he was wearing.",
          "categories":[
 
          ]
@@ -1199,7 +1199,7 @@ export const jokes =
       },
       {
          "id":186,
-         "joke":"Fear is not the only emotion Chuck Norris can smell. He can also detect hope, as in &quot;I hope I don't get a roundhouse kick from Chuck Norris.&quot;",
+         "joke":"Fear is not the only emotion Chuck Norris can smell. He can also detect hope, as in \"I hope I don't get a roundhouse kick from Chuck Norris.\"",
          "categories":[
 
          ]
@@ -1269,7 +1269,7 @@ export const jokes =
       },
       {
          "id":196,
-         "joke":"The Bible was originally titled &quot;Chuck Norris and Friends&quot;",
+         "joke":"The Bible was originally titled \"Chuck Norris and Friends\"",
          "categories":[
 
          ]
@@ -1290,7 +1290,7 @@ export const jokes =
       },
       {
          "id":199,
-         "joke":"When Chuck Norris says &quot;More cowbell&quot;, he MEANS it.",
+         "joke":"When Chuck Norris says \"More cowbell\", he MEANS it.",
          "categories":[
 
          ]
@@ -1395,14 +1395,14 @@ export const jokes =
       },
       {
          "id":214,
-         "joke":"As President Roosevelt said: &quot;We have nothing to fear but fear itself. And Chuck Norris.&quot;",
+         "joke":"As President Roosevelt said: \"We have nothing to fear but fear itself. And Chuck Norris.\"",
          "categories":[
 
          ]
       },
       {
          "id":215,
-         "joke":"Chuck Norris just says &quot;no&quot; to drugs. If he said &quot;yes&quot;, it would collapse Colombia's infrastructure.",
+         "joke":"Chuck Norris just says \"no\" to drugs. If he said \"yes\", it would collapse Colombia's infrastructure.",
          "categories":[
 
          ]
@@ -1479,14 +1479,14 @@ export const jokes =
       },
       {
          "id":226,
-         "joke":"&quot;Brokeback Mountain&quot; is not just a movie. It's also what Chuck Norris calls the pile of dead ninjas in his front yard.",
+         "joke":"\"Brokeback Mountain\" is not just a movie. It's also what Chuck Norris calls the pile of dead ninjas in his front yard.",
          "categories":[
 
          ]
       },
       {
          "id":227,
-         "joke":"When God said, &quot;let there be light&quot;, Chuck Norris said, &quot;say 'please'.&quot;",
+         "joke":"When God said, \"let there be light\", Chuck Norris said, \"say 'please'.\"",
          "categories":[
 
          ]
@@ -1535,7 +1535,7 @@ export const jokes =
       },
       {
          "id":234,
-         "joke":"Chuck Norris kills anyone that asks: &quot;Do you want fries with that?&quot;. Because by now everyone should know that Chuck doesn't want fries with anything. Ever.",
+         "joke":"Chuck Norris kills anyone that asks: \"Do you want fries with that?\". Because by now everyone should know that Chuck doesn't want fries with anything. Ever.",
          "categories":[
 
          ]
@@ -1570,7 +1570,7 @@ export const jokes =
       },
       {
          "id":239,
-         "joke":"Chuck Norris's version of a &quot;chocolate milkshake&quot; is a raw porterhouse wrapped around ten Hershey bars, and doused in diesel fuel.",
+         "joke":"Chuck Norris's version of a \"chocolate milkshake\" is a raw porterhouse wrapped around ten Hershey bars, and doused in diesel fuel.",
          "categories":[
 
          ]
@@ -1661,14 +1661,14 @@ export const jokes =
       },
       {
          "id":252,
-         "joke":"Saddam Hussein was not found hiding in a &quot;hole.&quot; Saddam was roundhouse-kicked in the head by Chuck Norris in Kansas, which sent him through the earth, stopping just short of the surface of Iraq.",
+         "joke":"Saddam Hussein was not found hiding in a \"hole.\" Saddam was roundhouse-kicked in the head by Chuck Norris in Kansas, which sent him through the earth, stopping just short of the surface of Iraq.",
          "categories":[
 
          ]
       },
       {
          "id":253,
-         "joke":"Coroners refer to dead people as &quot;ABC's&quot;. Already Been Chucked.",
+         "joke":"Coroners refer to dead people as \"ABC's\". Already Been Chucked.",
          "categories":[
 
          ]
@@ -1717,7 +1717,7 @@ export const jokes =
       },
       {
          "id":260,
-         "joke":"If you rearrange the letters in &quot;Chuck Norris&quot;, they also spell &quot;Crush Rock In&quot;. The words &quot;with his fists&quot; are understood.",
+         "joke":"If you rearrange the letters in \"Chuck Norris\", they also spell \"Crush Rock In\". The words \"with his fists\" are understood.",
          "categories":[
 
          ]
@@ -1738,14 +1738,14 @@ export const jokes =
       },
       {
          "id":263,
-         "joke":"The original title for Star Wars was &quot;Skywalker: Texas Ranger&quot;. Starring Chuck Norris.",
+         "joke":"The original title for Star Wars was \"Skywalker: Texas Ranger\". Starring Chuck Norris.",
          "categories":[
 
          ]
       },
       {
          "id":264,
-         "joke":"Guantuanamo Bay, Cuba, is the military code-word for &quot;Chuck Norris' basement&quot;.",
+         "joke":"Guantuanamo Bay, Cuba, is the military code-word for \"Chuck Norris' basement\".",
          "categories":[
 
          ]
@@ -1955,7 +1955,7 @@ export const jokes =
       },
       {
          "id":295,
-         "joke":"The pie scene in &quot;American Pie&quot; is based on a dare Chuck Norris took when he was younger. However, in Chuck Norris' case, the &quot;pie&quot; was the molten crater of an active volcano.",
+         "joke":"The pie scene in \"American Pie\" is based on a dare Chuck Norris took when he was younger. However, in Chuck Norris' case, the \"pie\" was the molten crater of an active volcano.",
          "categories":[
 
          ]
@@ -2032,7 +2032,7 @@ export const jokes =
       },
       {
          "id":306,
-         "joke":"Scientifically speaking, it is impossible to charge Chuck Norris with &quot;obstruction of justice.&quot; This is because even Chuck Norris cannot be in two places at the same time.",
+         "joke":"Scientifically speaking, it is impossible to charge Chuck Norris with \"obstruction of justice.\" This is because even Chuck Norris cannot be in two places at the same time.",
          "categories":[
 
          ]
@@ -2046,7 +2046,7 @@ export const jokes =
       },
       {
          "id":308,
-         "joke":"When you say &quot;no one's perfect&quot;, Chuck Norris takes this as a personal insult.",
+         "joke":"When you say \"no one's perfect\", Chuck Norris takes this as a personal insult.",
          "categories":[
 
          ]
@@ -2102,7 +2102,7 @@ export const jokes =
       },
       {
          "id":316,
-         "joke":"In the medical community, death is referred to as &quot;Chuck Norris Disease&quot;",
+         "joke":"In the medical community, death is referred to as \"Chuck Norris Disease\"",
          "categories":[
 
          ]
@@ -2123,7 +2123,7 @@ export const jokes =
       },
       {
          "id":319,
-         "joke":"In the Words of Julius Caesar, &quot;Veni, Vidi, Vici, Chuck Norris&quot;. Translation: I came, I saw, and I was roundhouse-kicked inthe face by Chuck Norris.",
+         "joke":"In the Words of Julius Caesar, \"Veni, Vidi, Vici, Chuck Norris\". Translation: I came, I saw, and I was roundhouse-kicked inthe face by Chuck Norris.",
          "categories":[
 
          ]
@@ -2137,7 +2137,7 @@ export const jokes =
       },
       {
          "id":321,
-         "joke":"Chuck Norris is widely predicted to be first black president. If you're thinking to yourself, &quot;But Chuck Norris isn't black&quot;, then you are dead wrong. And stop being a racist.",
+         "joke":"Chuck Norris is widely predicted to be first black president. If you're thinking to yourself, \"But Chuck Norris isn't black\", then you are dead wrong. And stop being a racist.",
          "categories":[
 
          ]
@@ -2165,7 +2165,7 @@ export const jokes =
       },
       {
          "id":325,
-         "joke":"Every time someone uses the word &quot;intense&quot;, Chuck Norris always replies &quot;you know what else is intense?&quot; followed by a roundhouse kick to the face.",
+         "joke":"Every time someone uses the word \"intense\", Chuck Norris always replies \"you know what else is intense?\" followed by a roundhouse kick to the face.",
          "categories":[
 
          ]
@@ -2186,7 +2186,7 @@ export const jokes =
       },
       {
          "id":328,
-         "joke":"Most people fear the Reaper. Chuck Norris considers him &quot;a promising Rookie&quot;.",
+         "joke":"Most people fear the Reaper. Chuck Norris considers him \"a promising Rookie\".",
          "categories":[
 
          ]
@@ -2305,7 +2305,7 @@ export const jokes =
       },
       {
          "id":345,
-         "joke":"When in a bar, you can order a drink called a &quot;Chuck Norris&quot;. It is also known as a &quot;Bloody Mary&quot;, if your name happens to be Mary.",
+         "joke":"When in a bar, you can order a drink called a \"Chuck Norris\". It is also known as a \"Bloody Mary\", if your name happens to be Mary.",
          "categories":[
 
          ]
@@ -2333,7 +2333,7 @@ export const jokes =
       },
       {
          "id":349,
-         "joke":"A man once asked Chuck Norris if his real name is &quot;Charles&quot;. Chuck Norris did not respond, he simply stared at him until he exploded.",
+         "joke":"A man once asked Chuck Norris if his real name is \"Charles\". Chuck Norris did not respond, he simply stared at him until he exploded.",
          "categories":[
 
          ]
@@ -2494,7 +2494,7 @@ export const jokes =
       },
       {
          "id":373,
-         "joke":"&quot;Sweating bullets&quot; is literally what happens when Chuck Norris gets too hot.",
+         "joke":"\"Sweating bullets\" is literally what happens when Chuck Norris gets too hot.",
          "categories":[
 
          ]
@@ -2508,7 +2508,7 @@ export const jokes =
       },
       {
          "id":375,
-         "joke":"After taking a steroids test doctors informed Chuck Norris that he had tested positive. He laughed upon receiving this information, and said &quot;of course my urine tested positive, what do you think they make steroids from?&quot;",
+         "joke":"After taking a steroids test doctors informed Chuck Norris that he had tested positive. He laughed upon receiving this information, and said \"of course my urine tested positive, what do you think they make steroids from?\"",
          "categories":[
 
          ]
@@ -2522,7 +2522,7 @@ export const jokes =
       },
       {
          "id":377,
-         "joke":"When Arnold says &quot;I'll be back&quot; in Terminator movie it is implied that he's going to ask Chuck Norris for help.",
+         "joke":"When Arnold says \"I'll be back\" in Terminator movie it is implied that he's going to ask Chuck Norris for help.",
          "categories":[
 
          ]
@@ -2585,7 +2585,7 @@ export const jokes =
       },
       {
          "id":386,
-         "joke":"Chuck Norris once lost the remote, but maintained control of the TV by yelling at it in between bites of his &quot;Filet of Child&quot; sandwich.",
+         "joke":"Chuck Norris once lost the remote, but maintained control of the TV by yelling at it in between bites of his \"Filet of Child\" sandwich.",
          "categories":[
 
          ]
@@ -2641,7 +2641,7 @@ export const jokes =
       },
       {
          "id":394,
-         "joke":"&quot;Let the Bodies Hit the Floor&quot; was originally written as Chuck Norris' theme song.",
+         "joke":"\"Let the Bodies Hit the Floor\" was originally written as Chuck Norris' theme song.",
          "categories":[
 
          ]
@@ -2676,7 +2676,7 @@ export const jokes =
       },
       {
          "id":399,
-         "joke":"In the movie &quot;The Matrix&quot;, Chuck Norris is the Matrix. If you pay close attention in the green &quot;falling code&quot; scenes, you can make out the faint texture of his beard.",
+         "joke":"In the movie \"The Matrix\", Chuck Norris is the Matrix. If you pay close attention in the green \"falling code\" scenes, you can make out the faint texture of his beard.",
          "categories":[
 
          ]
@@ -2725,7 +2725,7 @@ export const jokes =
       },
       {
          "id":406,
-         "joke":"Chuck Norris doesn't say &quot;who's your daddy&quot;, because he knows the answer.",
+         "joke":"Chuck Norris doesn't say \"who's your daddy\", because he knows the answer.",
          "categories":[
 
          ]
@@ -2746,7 +2746,7 @@ export const jokes =
       },
       {
          "id":409,
-         "joke":"The term &quot;Cleveland Steamer&quot; got its name from Chuck Norris, when he took a dump while visiting the Rock and Roll Hall of fame and buried northern Ohio under a glacier of fecal matter.",
+         "joke":"The term \"Cleveland Steamer\" got its name from Chuck Norris, when he took a dump while visiting the Rock and Roll Hall of fame and buried northern Ohio under a glacier of fecal matter.",
          "categories":[
 
          ]
@@ -2865,7 +2865,7 @@ export const jokes =
       },
       {
          "id":426,
-         "joke":"A man once taunted Chuck Norris with a bag of Lay's potato chips, saying &quot;Betcha can't eat just one!&quot; Chuck Norris proceeded to eat the chips, the bag, and the man in one deft move.",
+         "joke":"A man once taunted Chuck Norris with a bag of Lay's potato chips, saying \"Betcha can't eat just one!\" Chuck Norris proceeded to eat the chips, the bag, and the man in one deft move.",
          "categories":[
 
          ]
@@ -2886,7 +2886,7 @@ export const jokes =
       },
       {
          "id":429,
-         "joke":"Chuck Norris has never been accused of murder because his roundhouse kicks are recognized as &quot;acts of God.&quot;",
+         "joke":"Chuck Norris has never been accused of murder because his roundhouse kicks are recognized as \"acts of God.\"",
          "categories":[
 
          ]
@@ -2935,7 +2935,7 @@ export const jokes =
       },
       {
          "id":436,
-         "joke":"Chuck Norris describes human beings as &quot;a sociable holder for blood and guts&quot;.",
+         "joke":"Chuck Norris describes human beings as \"a sociable holder for blood and guts\".",
          "categories":[
 
          ]
@@ -2963,7 +2963,7 @@ export const jokes =
       },
       {
          "id":441,
-         "joke":"Chuck Norris did not &quot;lose&quot; his virginity, he stalked it and then destroyed it with extreme prejudice.",
+         "joke":"Chuck Norris did not \"lose\" his virginity, he stalked it and then destroyed it with extreme prejudice.",
          "categories":[
 
          ]
@@ -3089,7 +3089,7 @@ export const jokes =
       },
       {
          "id":464,
-         "joke":"&quot;It works on my machine&quot; always holds true for Chuck Norris.",
+         "joke":"\"It works on my machine\" always holds true for Chuck Norris.",
          "categories":[
             "nerdy"
          ]
@@ -3145,7 +3145,7 @@ export const jokes =
       },
       {
          "id":472,
-         "joke":"When Chuck Norris is web surfing websites get the message &quot;Warning: Internet Explorer has deemed this user to be malicious or dangerous. Proceed?&quot;.",
+         "joke":"When Chuck Norris is web surfing websites get the message \"Warning: Internet Explorer has deemed this user to be malicious or dangerous. Proceed?\".",
          "categories":[
             "nerdy"
          ]
@@ -3166,7 +3166,7 @@ export const jokes =
       },
       {
          "id":475,
-         "joke":"Chuck Norris doesn't need sudo, he just types &quot;Chuck Norris&quot; before his commands.",
+         "joke":"Chuck Norris doesn't need sudo, he just types \"Chuck Norris\" before his commands.",
          "categories":[
             "nerdy"
          ]
@@ -3418,7 +3418,7 @@ export const jokes =
       },
       {
          "id":511,
-         "joke":"Every SQL statement that Chuck Norris codes has an implicit &quot;COMMIT&quot; in its end.",
+         "joke":"Every SQL statement that Chuck Norris codes has an implicit \"COMMIT\" in its end.",
          "categories":[
             "nerdy"
          ]
@@ -3815,4 +3815,4 @@ export const jokes =
 
          ]
       }
-]
+   ]
