@@ -22,7 +22,7 @@ var Joke = React.createClass({
 
   componentWillMount: function() {
     this._panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: this._onStartShouldSetResponder,
+      onStartShouldSetPanResponder: (evt, gestureState) => true,
       onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
       onMoveShouldSetPanResponder: (evt, gestureState) => true,
       onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
@@ -34,25 +34,18 @@ var Joke = React.createClass({
   setPosition: function(nativeEvent, gestureState) {
     //Update our state with the deltaX/deltaY of the movement
     this.setState({
-      x: this.state.x + gestureState.dx,
-      y: this.state.y + gestureState.dy
+      x: gestureState.dx,
+      y: gestureState.dy
     });
     //Set our drag to be the new position so our delta can be calculated next time correctly
     console.log('this.state.x is' + this.state.x)
   },
   resetPosition: function(nativeEvent, gestureState) {
-    this.dragging = false;
     //Reset on release
     this.setState({
       x: 0,
       y: 0,
     })
-  },
-  _onStartShouldSetResponder: function(nativeEvent, gestureState) {
-    this.dragging = true;
-    //Setup initial drag coordinates
-    console.log('in onStart, this.state.x is' + this.state.x)
-    return true;
   },
   _onMoveShouldSetResponder: function(nativeEvent, gestureState) {
     return true;
