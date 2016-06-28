@@ -7,6 +7,9 @@ import {
   PanResponder
 } from 'react-native';
 import { jokes } from '../api/index'
+import Dimensions from 'Dimensions'
+
+var windowSize = Dimensions.get('window')
 
 var Joke = React.createClass({
   propType: {
@@ -23,7 +26,7 @@ var Joke = React.createClass({
   componentWillMount: function() {
     this._panResponder = PanResponder.create({
       onStartShouldSetPanResponder: (evt, gestureState) => true,
-      onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
+      onStartShouldSetPanResponderCapture: this._onStartShouldSetResponder,
       onMoveShouldSetPanResponder: (evt, gestureState) => true,
       onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
       onPanResponderMove: this.setPosition,
@@ -41,17 +44,35 @@ var Joke = React.createClass({
     console.log('this.state.x is' + this.state.x)
   },
   resetPosition: function(nativeEvent, gestureState) {
+    this.dragging = false;
     //Reset on release
     this.setState({
       x: 0,
       y: 0,
     })
   },
-  _onMoveShouldSetResponder: function(nativeEvent, gestureState) {
+  getRotationDegree: function(rotateTop, x) {
+    var rotation = ( (x/windowSize.width) * 100)/3;
+    var rotate = rotateTop ? 1 : -1
+    var rotateString = (rotation * rotate) + 'deg'
+    return rotateString;
+  },
+
+  _onStartShouldSetResponder: function(nativeEvent, gestureState) {
+    this.dragging = true;
+    //Setup initial drag coordinates
+    this.rotateTop = nativeEvent.locationY <= 300
+    console.log("_onStartShouldSetResponder is called")
     return true;
   },
+
   getJokeStyle: function() {
     var transform = [{translateX: this.state.x}, {translateY: this.state.y}];
+    if (this.dragging) {
+      transform.push({rotate: this.getRotationDegree(this.rotateTop, this.state.x)})
+    }
+    console.log('this.rotateTop is ' + this.rotateTop + ' and dragging is ' + this.dragging)
+
     return {transform: transform};
   },
 
