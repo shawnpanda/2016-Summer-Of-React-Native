@@ -99,7 +99,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingLeft: 15,
-    paddingRight: 15
+    paddingRight: 15,
+  },
+  text: {
+    fontSize: 18
   }
 });
 

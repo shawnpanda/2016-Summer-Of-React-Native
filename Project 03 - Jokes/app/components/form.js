@@ -21,6 +21,18 @@ var SignIn = React.createClass({
     LastName: PropTypes.string.isRequired,
     submitName: PropTypes.func.isRequired
   },
+  getInitialState() {
+    return {
+      value: {
+        FirstName: '',
+        LastName: ''
+      }
+    };
+  },
+
+  onChange(value) {
+    this.setState({ value });
+  },
 
   onPress() {
     var value = this.refs.form.getValue();
@@ -31,11 +43,15 @@ var SignIn = React.createClass({
   },
 
   render() {
+    var value = this.state;
     return (
       <View style={styles.container}>
+        <Text style={styles.titleText}>Jokes on {this.state.value.FirstName} {this.state.value.LastName}</Text>
         <Form
           ref="form"
           type={Person}
+          value={this.state.value}
+          onChange={this.onChange}
         />
         <TouchableHighlight style={styles.button} onPress={this.onPress} underlayColor='#99d9f4'>
           <Text style={styles.buttonText}>Save</Text>
@@ -50,6 +66,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 50,
     padding: 20,
+  },
+  titleText: {
+    color: '#000000',
+    fontSize: 25,
+    marginBottom: 20,
+    textAlign: 'center'
   },
   buttonText: {
     fontSize: 18,
