@@ -1,5 +1,5 @@
 import MapView from 'react-native-maps';
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions, TouchableHighlight, Text, View } from 'react-native';
 import React, { Component } from 'react';
 
 var { width, height } = Dimensions.get('window');
@@ -23,8 +23,17 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    bottom: 0,
+    bottom: 50,
   },
+  button: {
+    height: 50,
+    backgroundColor: '#48BBEC',
+    borderColor: '#48BBEC',
+    borderWidth: 1,
+    alignSelf: 'stretch',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
 });
 
 class Home extends Component {
@@ -38,7 +47,7 @@ class Home extends Component {
     }}
   }
 
-  componentDidMount() {
+  getCurrentPosition() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
        console.log(position);
@@ -54,13 +63,22 @@ class Home extends Component {
     );
   }
 
+  onPress() {
+    this.getCurrentPosition()
+  }
+
   render() {
     return (
-      <MapView
-        style={ styles.map }
-        region= { this.state.currentRegion }
-        showsUserLocation = {true}
-      />
+      <View style={styles.container}>
+        <MapView
+          style={ styles.map }
+          region= { this.state.currentRegion }
+          showsUserLocation = {true}
+        />
+        <TouchableHighlight style={styles.button} onPress={this.onPress.bind(this)}>
+          <Text>Get Your Location!</Text>
+        </TouchableHighlight>
+      </View>
     );
   }
 
