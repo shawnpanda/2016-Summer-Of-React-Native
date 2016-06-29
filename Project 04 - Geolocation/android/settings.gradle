@@ -1,4 +1,4 @@
-rootProject.name = 'GeoApp'
+rootProject.name = 'GeolocationApp'
 
 include ':app'
 include ':react-native-maps'
