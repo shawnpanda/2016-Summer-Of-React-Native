@@ -8,6 +8,13 @@ import com.facebook.react.shell.MainReactPackage;
 import java.util.Arrays;
 import java.util.List;
 
+import android.content.Intent;     // <--- import
+import android.os.Bundle;
+
+import com.facebook.CallbackManager;
+import com.facebook.FacebookSdk;
+
+
 public class MainActivity extends ReactActivity {
     CallbackManager mCallbackManager;
 
@@ -36,10 +43,11 @@ public class MainActivity extends ReactActivity {
     @Override
     protected List<ReactPackage> getPackages() {
         mCallbackManager = new CallbackManager.Factory().create();
-        return Arrays.<ReactPackage>asList(
+        ReactPackage packages[] = new ReactPackage[]{
             new MainReactPackage(),
-            new FBSDKPackage()
-        );
+            new FBSDKPackage(mCallbackManager),
+        };
+        return Arrays.<ReactPackage>asList(packages);
     }
 
     @Override
