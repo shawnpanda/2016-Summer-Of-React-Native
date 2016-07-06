@@ -20,7 +20,6 @@ class IdeaApp extends Component {
         </Text>
         <View>
           <LoginButton
-            publishPermissions={["publish_actions"]}
             onLoginFinished={
               (error, result) => {
                 if (error) {
