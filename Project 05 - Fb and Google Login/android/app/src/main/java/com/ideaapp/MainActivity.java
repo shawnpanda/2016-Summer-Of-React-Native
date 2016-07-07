@@ -14,6 +14,7 @@ import android.os.Bundle;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
 
+import co.apptailor.googlesignin.RNGoogleSigninPackage;  // <--- import
 
 public class MainActivity extends ReactActivity {
     CallbackManager mCallbackManager;
@@ -45,7 +46,8 @@ public class MainActivity extends ReactActivity {
         mCallbackManager = new CallbackManager.Factory().create();
         ReactPackage packages[] = new ReactPackage[]{
             new MainReactPackage(),
-            new FBSDKPackage(mCallbackManager),
+            new FBSDKPackage(mCallbackManager), // <-- facebook sign
+            new RNGoogleSigninPackage() // <-- google sign
         };
         return Arrays.<ReactPackage>asList(packages);
     }

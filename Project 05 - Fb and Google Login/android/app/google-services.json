@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "960092012527",
+    "project_id": "firebase-loginapp"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:960092012527:android:4c52e938a95e6131",
+        "android_client_info": {
+          "package_name": "com.ideaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "960092012527-63pvj1o0td7jsjpvtl5l6mouftdd9hp2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ideaapp",
+            "certificate_hash": "70F468E848FDC539526B56494103FAA90647D09C"
+          }
+        },
+        {
+          "client_id": "960092012527-ribujgg0k77aa0d2dmr089246d0pav60.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvj2YMcdvWFgikhhciGia3DDJRck_JAn8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

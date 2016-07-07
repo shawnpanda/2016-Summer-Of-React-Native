@@ -4,6 +4,8 @@ import {
   Text,
   View
 } from 'react-native';
+import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
+
 const FBSDK = require('react-native-fbsdk');
 const {
   LoginButton,
@@ -12,6 +14,48 @@ const {
 
 
 class IdeaApp extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: null
+    };
+  }
+
+  componentDidMount() {
+    this._setupGoogleSignin();
+  }
+
+   _signIn() {
+    GoogleSignin.signIn()
+    .then((user) => {
+      console.log(user);
+      this.setState({user: user});
+    })
+    .catch((err) => {
+      console.log('WRONG SIGNIN', err);
+    })
+    .done();
+  }
+
+  async _setupGoogleSignin() {
+    try {
+      await GoogleSignin.hasPlayServices({ autoResolve: true });
+      await GoogleSignin.configure({
+        scopes: ['https://www.googleapis.com/auth/calendar'],
+        webClientId: '867788377702-gmfcntqtkrmdh3bh1dat6dac9nfiiku1.apps.googleusercontent.com',
+        offlineAccess: true
+      });
+
+      const user = await GoogleSignin.currentUserAsync();
+      console.log(user);
+      this.setState({user});
+    }
+    catch(err) {
+      console.log("Play services error", err.code, err.message);
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -37,6 +81,11 @@ class IdeaApp extends Component {
             }
             onLogoutFinished={() => alert("logout.")}/>
         </View>
+        <GoogleSigninButton
+          style={{width: 48, height: 48}}
+          size={GoogleSigninButton.Size.Icon}
+          color={GoogleSigninButton.Color.Dark}
+          onPress={this._signIn.bind(this)}/>
       </View>
     );
   }
