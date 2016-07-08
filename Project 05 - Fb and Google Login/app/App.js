@@ -10,7 +10,9 @@ import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 const FBSDK = require('react-native-fbsdk');
 const {
   LoginButton,
-  AccessToken
+  AccessToken,
+  GraphRequest,
+  GraphRequestManager,
 } = FBSDK;
 
 
@@ -64,6 +66,7 @@ class IdeaApp extends Component {
                     AccessToken.getCurrentAccessToken().then(
                       (data) => {
                         alert(data.accessToken.toString())
+                        this._getUserInfo(data.accessToken.toString())
                       }
                     )
                   }
@@ -94,6 +97,41 @@ class IdeaApp extends Component {
     }
   }
 
+  // Fb function
+  _getUserInfo(token) {
+    // the famous params object...
+    const profileRequestParams = {
+      fields: {
+          string: 'id, name, email, first_name, last_name, gender'
+      }
+    }
+
+    const profileRequestConfig = {
+                httpMethod: 'GET',
+                version: 'v2.6',
+                parameters: profileRequestParams,
+                accessToken: token
+    }
+
+    // Create a graph request asking for user information with a callback to handle the response.
+    const infoRequest = new GraphRequest(
+      '/me',
+      profileRequestConfig,
+      this._responseInfoCallback,
+    );
+    new GraphRequestManager().addRequest(infoRequest).start();
+  }
+
+  _responseInfoCallback(error: ?Object, result: ?Object) {
+    if (error) {
+      alert('Error fetching data: ' + error.toString());
+    } else {
+      alert('Success fetching data: ' + result.toString());
+      console.log(result)
+    }
+  }
+
+  // Google Signin
   _signIn() {
     GoogleSignin.signIn()
     .then((user) => {
