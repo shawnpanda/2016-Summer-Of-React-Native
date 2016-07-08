@@ -43,9 +43,10 @@ class IdeaApp extends Component {
       await GoogleSignin.hasPlayServices({ autoResolve: true });
       await GoogleSignin.configure({
         scopes: ['https://www.googleapis.com/auth/calendar'],
-        webClientId: '867788377702-gmfcntqtkrmdh3bh1dat6dac9nfiiku1.apps.googleusercontent.com',
+        webClientId: '960092012527-ribujgg0k77aa0d2dmr089246d0pav60.apps.googleusercontent.com',
         offlineAccess: true
       });
+
 
       const user = await GoogleSignin.currentUserAsync();
       console.log(user);
@@ -57,38 +58,47 @@ class IdeaApp extends Component {
   }
 
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <View>
-          <LoginButton
-            onLoginFinished={
-              (error, result) => {
-                if (error) {
-                  alert("login has error: " + result.error);
-                } else if (result.isCancelled) {
-                  alert("login is cancelled.");
-                } else {
-                  AccessToken.getCurrentAccessToken().then(
-                    (data) => {
-                      alert(data.accessToken.toString())
-                    }
-                  )
+    if (!this.state.user) {
+      return (
+        <View style={styles.container}>
+          <Text style={styles.welcome}>
+            Welcome to React Native!
+          </Text>
+          <View>
+            <LoginButton
+              onLoginFinished={
+                (error, result) => {
+                  if (error) {
+                    alert("login has error: " + result.error);
+                  } else if (result.isCancelled) {
+                    alert("login is cancelled.");
+                  } else {
+                    AccessToken.getCurrentAccessToken().then(
+                      (data) => {
+                        alert(data.accessToken.toString())
+                      }
+                    )
+                  }
                 }
               }
-            }
-            onLogoutFinished={() => alert("logout.")}/>
+              onLogoutFinished={() => alert("logout.")}/>
+          </View>
+          <GoogleSigninButton
+            style={{width: 48, height: 48}}
+            size={GoogleSigninButton.Size.Icon}
+            color={GoogleSigninButton.Color.Dark}
+            onPress={this._signIn.bind(this)}/>
         </View>
-        <GoogleSigninButton
-          style={{width: 48, height: 48}}
-          size={GoogleSigninButton.Size.Icon}
-          color={GoogleSigninButton.Color.Dark}
-          onPress={this._signIn.bind(this)}/>
-      </View>
-    );
-  }
+      );
+    } else {
+      return (
+        <View style={styles.container}>
+          <Text style={{fontSize: 18, fontWeight: 'bold', marginBottom: 20}}>Welcome {this.state.user.name}</Text>
+          <Text>Your email is: {this.state.user.email}</Text>
+        </View>
+      );
+    }
+  } 
 }
 
 const styles = StyleSheet.create({
