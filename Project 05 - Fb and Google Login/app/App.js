@@ -10,6 +10,7 @@ import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 const FBSDK = require('react-native-fbsdk');
 const {
   LoginButton,
+  LoginManager,
   AccessToken,
   GraphRequest,
   GraphRequestManager,
@@ -23,6 +24,8 @@ class IdeaApp extends Component {
     this.state = {
       user: null
     };
+    // this._getUserInfo.bind(this)
+    // this._responseInfoCallback.bind(this)
   }
 
   componentDidMount() {
@@ -66,7 +69,7 @@ class IdeaApp extends Component {
                     AccessToken.getCurrentAccessToken().then(
                       (data) => {
                         alert(data.accessToken.toString())
-                        this._getUserInfo(data.accessToken.toString())
+                        this._getUserInfo(data.accessToken.toString()).bind(this)
                       }
                     )
                   }
@@ -102,7 +105,7 @@ class IdeaApp extends Component {
     // the famous params object...
     const profileRequestParams = {
       fields: {
-          string: 'id, name, email, first_name, last_name, gender'
+          string: 'id, name, email, gender'
       }
     }
 
@@ -117,7 +120,7 @@ class IdeaApp extends Component {
     const infoRequest = new GraphRequest(
       '/me',
       profileRequestConfig,
-      this._responseInfoCallback,
+      this._responseInfoCallback.bind(this),
     );
     new GraphRequestManager().addRequest(infoRequest).start();
   }
@@ -126,8 +129,12 @@ class IdeaApp extends Component {
     if (error) {
       alert('Error fetching data: ' + error.toString());
     } else {
-      alert('Success fetching data: ' + result.toString());
+      // alert('Success fetching data: ' + result.toString());
       console.log(result)
+      this.setState({user: {
+        email: result.email,
+        name: result.name
+      }})
     }
   }
 
