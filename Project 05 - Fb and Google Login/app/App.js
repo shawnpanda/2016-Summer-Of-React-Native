@@ -69,7 +69,7 @@ class IdeaApp extends Component {
                     AccessToken.getCurrentAccessToken().then(
                       (data) => {
                         alert(data.accessToken.toString())
-                        this._getUserInfo(data.accessToken.toString()).bind(this)
+                        this._getUserInfo(data.accessToken.toString())
                       }
                     )
                   }
