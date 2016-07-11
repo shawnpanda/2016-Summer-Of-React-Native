@@ -15,3 +15,5 @@ This is a practice app to integrate cross-platform google and facebook login in 
 
 
 ### Useful Links
+[!react-native-fbsdk](https://github.com/facebook/react-native-fbsdk)
+[!react-native-google-signin](https://github.com/devfd/react-native-google-signin)
