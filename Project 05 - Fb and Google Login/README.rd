@@ -1,6 +1,6 @@
 # Google and Facebook Login
 
-
+This is a practice app to integrate cross-platform google and facebook login in react native app.
 
 ### Demo
 
