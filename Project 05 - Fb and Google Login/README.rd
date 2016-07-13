@@ -12,6 +12,7 @@ This is a practice app to integrate cross-platform google and facebook login in 
 ### What I have learned
 
 * Setting up google and facebook app in developer portal
+* Consigure separate android and ios settings for the app
 
 
 ### Useful Links
