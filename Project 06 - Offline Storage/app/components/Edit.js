@@ -1,11 +1,27 @@
 import React, { Component, PropTypes } from 'react';
-import { StyleSheet, Text, View, TouchableHighlight} from 'react-native';
+import { StyleSheet, Text, View, TextInput} from 'react-native';
 
 class Edit extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { text: this.props.text}
+  }
+
   render() {
     return <View style={styles.container}>
         <Text style={styles.date}>{this.props.date}</Text>
-        <Text>{this.props.text}</Text>
+        <TextInput
+          {...this.props}
+          multiline = {true}
+          onChange={(event) => {
+           this.setState({
+             text: event.nativeEvent.text,
+             height: event.nativeEvent.contentSize.height,
+           });
+         }}
+         style={[styles.default, {height: Math.max(35, this.state.height)}]}
+          value={this.state.text}
+        />
       </View>
   }
 }
