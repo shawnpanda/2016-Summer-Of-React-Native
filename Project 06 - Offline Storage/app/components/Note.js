@@ -1,12 +1,20 @@
-import React, { Component, PropTypes } from 'react';
-import { StyleSheet, Text, View, ListView} from 'react-native';
+import React, { Component, PropTypes } from 'react'
+import { StyleSheet, Text, View, TouchableHighlight} from 'react-native'
+import {Actions} from 'react-native-router-flux'
 
 class Note extends Component {
   render() {
-    return <View style={styles.note}>
-      <Text style={styles.date}>{this.props.note.date}</Text>
-      <Text>{this.props.note.note}</Text>
-    </View>
+    const editNote = () => {Actions.edit({text:this.props.note.note, 
+                                        title:'Edit',
+                                        date: this.props.note.date})}
+    return <TouchableHighlight 
+              style={styles.note}
+              onPress={editNote}>
+        <View>
+          <Text style={styles.date}>{this.props.note.date}</Text>
+          <Text>{this.props.note.note}</Text>
+        </View>
+      </TouchableHighlight>
   }
 }
 
