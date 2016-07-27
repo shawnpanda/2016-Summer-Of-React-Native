@@ -6,18 +6,19 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View
 } from 'react-native';
+import moment from 'moment'
 
 class OfflineStorage extends Component {
   render() {
+    var datetime = moment().format('L')
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to React Native!11
         </Text>
         <Text style={styles.instructions}>
           To get started, edit index.android.js
@@ -25,6 +26,9 @@ class OfflineStorage extends Component {
         <Text style={styles.instructions}>
           Double tap R on your keyboard to reload,{'\n'}
           Shake or press menu button for dev menu
+        </Text>
+        <Text>
+        {datetime}
         </Text>
       </View>
     );
