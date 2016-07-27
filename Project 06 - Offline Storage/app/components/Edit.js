@@ -1,5 +1,6 @@
-import React, { Component, PropTypes } from 'react';
-import { StyleSheet, Text, View, TextInput} from 'react-native';
+import React, { Component, PropTypes } from 'react'
+import { StyleSheet, Text, View, TextInput} from 'react-native'
+import moment from 'moment'
 
 class Edit extends Component {
   constructor(props) {
@@ -9,7 +10,9 @@ class Edit extends Component {
 
   render() {
     return <View style={styles.container}>
-        <Text style={styles.date}>{this.props.date}</Text>
+        <Text style={styles.date}>
+          {this.props.date?this.props.date:moment().format('L')}
+        </Text>
         <TextInput
           {...this.props}
           multiline = {true}
@@ -30,18 +33,9 @@ var styles = StyleSheet.create({
   container: {
     paddingTop: 65
   },
-  note: {
-    width: 140,
-    height: 150,
-    flex: 1,
-    backgroundColor: '#fff',
-    borderWidth: 1,
-    borderRadius: 4,
-    borderColor: '#ccc',
-    margin:3,
-    padding:5
-  },
   date: {
+    fontSize: 20,
+    fontWeight: 'bold',
     textAlign: 'center'
   }
 })
