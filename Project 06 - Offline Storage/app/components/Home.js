@@ -22,6 +22,7 @@ class Home extends Component {
     return (
       <View style={styles.container}>
         <ListView
+          contentContainerStyle={styles.list}
           dataSource={ds.cloneWithRows(this.props.notes)}
           renderRow={this.renderNote}
         />
@@ -33,6 +34,13 @@ class Home extends Component {
 var styles = StyleSheet.create({
   container: {
     paddingTop: 65
+  },
+  list: {
+    justifyContent: 'space-around',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start'
+
   }
 })
 

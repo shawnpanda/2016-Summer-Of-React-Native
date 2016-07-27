@@ -8,6 +8,14 @@ const initialState = [
   {
     "date": "07/25/2016",
     "note": "Happy Birthday!!!"
+  },
+  {
+    "date": "07/24/2016",
+    "note": "Dan, Happy Birthday!!!"
+  },
+  {
+    "date": "07/23/2016",
+    "note": "wow, Happy Birthday!!!"
   }
 ]
 
