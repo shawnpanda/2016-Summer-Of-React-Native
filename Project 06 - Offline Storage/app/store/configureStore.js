@@ -7,5 +7,15 @@ export default function configureStore(initialState) {
     devTools()
   );
   // Note: passing enhancer as last argument requires redux@>=3.1.0
-  return createStore(notesApp, initialState, enhancer);
+  const store = createStore(notesApp, initialState, enhancer)
+
+  if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept('../reducers/reducers', () => {
+      const nextRootReducer = require('../reducers/reducers').default;
+      store.replaceReducer(nextRootReducer);
+    });
+  }
+
+  return store
 }

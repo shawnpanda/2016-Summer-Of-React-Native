@@ -4,10 +4,10 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import {Scene, Router} from 'react-native-router-flux';
+import React, { Component } from 'react'
+import {Scene, Router} from 'react-native-router-flux'
 import HomeContainer from './containers/HomeContainer'
-import { Provider, connect } from 'react-redux';
+import { Provider, connect } from 'react-redux'
 import configureStore from './store/configureStore'
 
 const store = configureStore()

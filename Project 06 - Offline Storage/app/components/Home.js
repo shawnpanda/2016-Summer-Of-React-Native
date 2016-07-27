@@ -8,6 +8,11 @@ import moment from 'moment'
 
 
 class Home extends Component {
+  constructor(props) {
+    super(props)
+
+    this.renderNote = this.renderNote.bind(this)
+  }
 
   renderNote(note) {
     return <View>
@@ -18,9 +23,12 @@ class Home extends Component {
 
   render() {
     var datetime = moment().format('L')
+    var notes = this.props.notes
     return (
       <View style={styles.container}>
         <Text>abc</Text>
+        <Text>{this.props.notes.length}</Text>
+        {this.renderNote(notes[0])}
       </View>
     )
   }
