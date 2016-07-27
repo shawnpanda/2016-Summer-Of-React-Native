@@ -6,19 +6,18 @@
 
 import React, { Component } from 'react';
 import {Scene, Router} from 'react-native-router-flux';
-import Home from './components/Home'
-import { createStore } from 'redux'
+import HomeContainer from './containers/HomeContainer'
 import { Provider, connect } from 'react-redux';
-import notesApp from './reducers/reducers'
+import configureStore from './store/configureStore'
 
-const store = createStore(notesApp)
+const store = configureStore()
 const RouterWithRedux = connect()(Router)
 
 class OfflineStorage extends Component {
   render() {
     return <Provider store={store}> 
     <RouterWithRedux>
-      <Scene key='home' component={Home} title='Home' initial={true}/>
+      <Scene key='home' component={HomeContainer} title='Home' initial={true}/>
     </RouterWithRedux>
     </Provider>
   }
