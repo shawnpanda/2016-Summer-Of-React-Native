@@ -4,8 +4,10 @@ import {Actions} from 'react-native-router-flux'
 
 class Note extends Component {
   render() {
-    const editNote = () => {Actions.edit({text:this.props.note.note, 
+    const editNote = () => {Actions.edit({
                                         title:'Edit',
+                                        text:this.props.note.note,
+                                        id: this.props.note.id, 
                                         date: this.props.note.date})}
     return <TouchableHighlight 
               style={styles.note}

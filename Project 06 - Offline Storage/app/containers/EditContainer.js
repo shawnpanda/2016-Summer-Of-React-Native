@@ -5,12 +5,18 @@ import { addNote, editNote } from '../actions/actions'
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
+    addNote: (text, date) => {
+      dispatch(addNote(text, date))
+    },
+    editNote: (id, text) => {
+      dispatch(editNote(id, text))
+    }
   }
 }
 
+
 const EditContainer = connect(
   () => ({}),
-  {addNote, editNote})(Edit)
+  mapDispatchToProps)(Edit)
 
 export default EditContainer

@@ -1,13 +1,15 @@
-import { createStore, compose } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 import devTools from 'remote-redux-devtools';
 import notesApp from '../reducers/reducers';
+import createLogger from 'redux-logger';
 
 export default function configureStore(initialState) {
   const enhancer = compose(
+    applyMiddleware(createLogger()),
     devTools()
   );
   // Note: passing enhancer as last argument requires redux@>=3.1.0
-  const store = createStore(notesApp, enhancer);
+  let store = createStore(notesApp, initialState, enhancer);
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
@@ -17,5 +19,5 @@ export default function configureStore(initialState) {
     });
   }
 
-  return store
+  return store;
 }

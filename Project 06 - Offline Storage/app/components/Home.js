@@ -46,6 +46,7 @@ var styles = StyleSheet.create({
 
 Home.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
     date: PropTypes.string.isRequired,
     note: PropTypes.string.isRequired
   }).isRequired).isRequired
