@@ -1,11 +1,9 @@
 import React, { Component, PropTypes } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { StyleSheet, Text, View, ListView} from 'react-native';
+import Note from './Note'
 import moment from 'moment'
 
+const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
 class Home extends Component {
   constructor(props) {
@@ -15,10 +13,7 @@ class Home extends Component {
   }
 
   renderNote(note) {
-    return <View>
-      <Text>{note.date}:{note.note}</Text>
-    </View>
-
+    return <Note note={note}/>
   }
 
   render() {
@@ -26,9 +21,10 @@ class Home extends Component {
     var notes = this.props.notes
     return (
       <View style={styles.container}>
-        <Text>abc</Text>
-        <Text>{this.props.notes.length}</Text>
-        {this.renderNote(notes[0])}
+        <ListView
+          dataSource={ds.cloneWithRows(this.props.notes)}
+          renderRow={this.renderNote}
+        />
       </View>
     )
   }

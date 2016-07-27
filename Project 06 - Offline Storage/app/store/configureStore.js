@@ -7,7 +7,7 @@ export default function configureStore(initialState) {
     devTools()
   );
   // Note: passing enhancer as last argument requires redux@>=3.1.0
-  const store = createStore(notesApp, initialState, enhancer)
+  const store = createStore(notesApp, enhancer);
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
