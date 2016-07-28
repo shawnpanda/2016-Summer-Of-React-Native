@@ -30,7 +30,8 @@ var styles = StyleSheet.create({
     borderRadius: 4,
     borderColor: '#ccc',
     margin:3,
-    padding:5
+    padding:5,
+    alignItems: 'center'
   },
   date: {
     textAlign: 'center'

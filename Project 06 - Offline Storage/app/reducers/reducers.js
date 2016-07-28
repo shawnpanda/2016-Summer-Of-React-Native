@@ -3,6 +3,21 @@ import { ADD_NOTE, EDIT_NOTE} from '../actions/actions'
 
 const initialState = [
   {
+    id : 7,
+    date: "07/30/2016",
+    note: "hello, I am very happy ahahah"
+  },
+  {
+    id : 6,
+    date: "07/29/2016",
+    note: "wow, I am very happy ahahah"
+  },
+  {
+    id : 5,
+    date: "07/28/2016",
+    note: "I am very happy ahahah"
+  },
+  {
     id : 4,
     date: "07/27/2016",
     note: "I am very happy"

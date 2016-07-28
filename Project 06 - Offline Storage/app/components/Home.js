@@ -20,22 +20,18 @@ class Home extends Component {
     var datetime = moment().format('L')
     var notes = this.props.notes
     return (
-      <View style={styles.container}>
         <ListView
           contentContainerStyle={styles.list}
           dataSource={ds.cloneWithRows(this.props.notes)}
           renderRow={this.renderNote}
         />
-      </View>
     )
   }
 }
 
 var styles = StyleSheet.create({
-  container: {
-    paddingTop: 65
-  },
   list: {
+    paddingTop: 60,
     justifyContent: 'space-around',
     flexDirection: 'row',
     flexWrap: 'wrap',
