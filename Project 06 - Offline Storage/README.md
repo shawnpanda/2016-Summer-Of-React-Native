@@ -3,7 +3,7 @@
 This app serves as a diary entry app that allows the user to type diary entry with offline storage functionality
 
 ### Demo
-
+![demo](https://github.com/shawnpanda/2016-Summer-Of-React-Native/blob/master/Project%2006%20-%20Offline%20Storage/demo.gif)
 
 
 ### Library Used
@@ -36,5 +36,5 @@ This app serves as a diary entry app that allows the user to type diary entry wi
 
 ###Useful Links
 
-* ![redux-persist](https://github.com/rt2zz/redux-persist)
-* ![auto-resizing text fields](https://github.com/facebook/react-native/commit/481f560f64806ba3324cf722d6bf8c3f36ac74a5)
+*[redux-persist](https://github.com/rt2zz/redux-persist)
+*[auto-resizing text fields](https://github.com/facebook/react-native/commit/481f560f64806ba3324cf722d6bf8c3f36ac74a5)
