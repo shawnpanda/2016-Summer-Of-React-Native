@@ -1,7 +1,7 @@
 export const ADD_NOTE = 'ADD_NOTE'
 export const EDIT_NOTE = 'EDIT_NOTE'
 
-let NextNoteId = 6
+let NextNoteId = 8
 export function addNote(text, date) {
   return {
     type: ADD_NOTE,

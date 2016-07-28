@@ -17,8 +17,8 @@ class OfflineStorage extends Component {
     return <Provider store={store} persistor={persistor}> 
     <RouterWithRedux>
       <Scene key='home' component={HomeContainer} 
-          title='Home' initial={true} onRight={addNote} rightTitle="Add"/>
-      <Scene key='edit' title='Add' component={EditContainer}/>
+          title='Diary Entries' initial={true} onRight={addNote} rightTitle="Add"/>
+      <Scene key='edit' title='Add Your Diary' component={EditContainer}/>
     </RouterWithRedux>
     </Provider>
   }

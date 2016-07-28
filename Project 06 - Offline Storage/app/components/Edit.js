@@ -31,7 +31,7 @@ class Edit extends Component {
             console.log('Y offset to frame: ' + fy)
             console.log('X offset to page: ' + px)
             console.log('Y offset to page: ' + py)
-      this.setState({height: height})
+      this.setState({height: height + 20})
       })
     })
   }
@@ -60,24 +60,30 @@ class Edit extends Component {
              height: event.nativeEvent.contentSize.height,
            });
          }}
-         style={{height: Math.max(35, this.state.height)}}
+         style={[styles.input, {height: Math.max(35, this.state.height)}]}
           value={this.state.text}
         />
-        <Text ref='hiddenText' style={styles.hidden}>{this.state.text}</Text>
+          <Text ref='hiddenText' style={styles.hidden}>{this.state.text}</Text>
       </View>
   }
 }
 
 var styles = StyleSheet.create({
   container: {
-    paddingTop: 65
+    paddingTop: 60
   },
   date: {
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center'
   },
+  hiddenContainer: {
+    flexDirection: 'row',
+    alignItems: 'flex-start'
+  },
   hidden: {
+    margin: 5,
+    lineHeight: 18,
     position: 'absolute',
     top: 10000,
     left: 10000

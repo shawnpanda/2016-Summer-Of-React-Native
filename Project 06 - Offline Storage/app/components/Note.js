@@ -5,7 +5,7 @@ import {Actions} from 'react-native-router-flux'
 class Note extends Component {
   render() {
     const editNote = () => {Actions.edit({
-                                        title:'Edit',
+                                        title:'Edit Your Diary',
                                         text:this.props.note.note,
                                         id: this.props.note.id, 
                                         date: this.props.note.date})}
