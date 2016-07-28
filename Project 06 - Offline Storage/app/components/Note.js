@@ -34,6 +34,7 @@ var styles = StyleSheet.create({
     alignItems: 'center'
   },
   date: {
+    fontWeight: 'bold',
     textAlign: 'center'
   }
 })

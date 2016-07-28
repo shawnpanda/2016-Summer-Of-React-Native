@@ -23,6 +23,19 @@ class Edit extends Component {
     Actions.pop()
   }
 
+  componentDidMount() {
+    setTimeout(() => {this.refs.hiddenText.measure((fx, fy, width, height, px, py) => {
+      console.log('Component width is: ' + width)
+            console.log('Component height is: ' + height)
+            console.log('X offset to frame: ' + fx)
+            console.log('Y offset to frame: ' + fy)
+            console.log('X offset to page: ' + px)
+            console.log('Y offset to page: ' + py)
+      this.setState({height: height})
+      })
+    })
+  }
+
   componentWillMount() {
     if (!this.props.text) {
       Actions.refresh({onRight: this.createNote,
@@ -47,9 +60,10 @@ class Edit extends Component {
              height: event.nativeEvent.contentSize.height,
            });
          }}
-         style={[styles.default, {height: Math.max(35, this.state.height)}]}
+         style={{height: Math.max(35, this.state.height)}}
           value={this.state.text}
         />
+        <Text ref='hiddenText' style={styles.hidden}>{this.state.text}</Text>
       </View>
   }
 }
@@ -62,6 +76,11 @@ var styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center'
+  },
+  hidden: {
+    position: 'absolute',
+    top: 10000,
+    left: 10000
   }
 })
 
