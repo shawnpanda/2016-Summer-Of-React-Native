@@ -12,7 +12,8 @@ export default function configureStore(initialState) {
               compose(
                 applyMiddleware(thunk, logger),
                 devTools({
-                  hostname: 'localhost', port: 8081,
+                  name: 'Android app', realtime: true,
+                  hostname: 'localhost', port: 8000,
                 })
               ));
 
