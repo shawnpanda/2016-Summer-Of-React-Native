@@ -37,4 +37,5 @@ This app serves as a diary entry app that allows the user to type diary entry wi
 ###Useful Links
 
 *[redux-persist](https://github.com/rt2zz/redux-persist)
+
 *[auto-resizing text fields](https://github.com/facebook/react-native/commit/481f560f64806ba3324cf722d6bf8c3f36ac74a5)
