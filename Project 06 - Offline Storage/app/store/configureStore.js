@@ -10,7 +10,8 @@ export default function configureStore(initialState) {
               initialState, 
               compose(
                 autoRehydrate(),
-                applyMiddleware(createLogger())
+                applyMiddleware(createLogger()),
+                global.reduxNativeDevTools ? global.reduxNativeDevTools(/*options*/) : nope => nope
               ));
 
   if (module.hot) {

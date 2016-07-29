@@ -11,10 +11,7 @@ export default function configureStore(initialState) {
               initialState, 
               compose(
                 applyMiddleware(thunk, logger),
-                devTools({
-                  name: 'Android app', realtime: true,
-                  hostname: 'localhost', port: 8000,
-                })
+                global.reduxNativeDevTools ? global.reduxNativeDevTools(/*options*/) : nope => nope
               ));
 
   if (module.hot) {
