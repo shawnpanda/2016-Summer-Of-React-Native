@@ -4,6 +4,6 @@
 
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
-import Login from './app/App'
+import LoginApp from './app/App'
 
-AppRegistry.registerComponent('Login', () => Login);
+AppRegistry.registerComponent('Login', () => LoginApp);
