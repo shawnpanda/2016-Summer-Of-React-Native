@@ -12,7 +12,7 @@ class Login extends Component {
   render () {
     return (
     <View style={styles.container}>
-      <Text>abc</Text>
+      <Text>abcasdasdas</Text>
     </View>
 
     )
