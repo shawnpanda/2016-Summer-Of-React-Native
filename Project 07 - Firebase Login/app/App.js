@@ -4,22 +4,21 @@ import {
   Text,
   View
 } from 'react-native';
+import { Provider } from 'react-redux'
+import configureStore from './store/configureStore'
 
-class Login extends Component {
+const store = configureStore()
+
+class LoginApp extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
+      <Provider store={store}>
+      <View>
+        <Text>
           Welcome to React Native!
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
       </View>
+      </Provider>
     );
   }
 }
