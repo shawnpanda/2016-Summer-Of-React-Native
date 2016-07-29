@@ -4,23 +4,22 @@ import {
   Text,
   View
 } from 'react-native';
-import { Provider } from 'react-redux'
-import configureStore from './store/configureStore'
-import Login from './containers/Login'
-import { Router, Scene } from 'react-native-router-flux';
-import { connect } from 'react-redux';
 
-const store = configureStore()
-const RouterWithRedux = connect()(Router);
-
-class LoginApp extends Component {
+class Login extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <RouterWithRedux>
-          <Scene key="root" component={Login} />
-        </RouterWithRedux>
-      </Provider>
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Welcome to React Native!
+        </Text>
+        <Text style={styles.instructions}>
+          To get started, edit index.android.js
+        </Text>
+        <Text style={styles.instructions}>
+          Double tap R on your keyboard to reload,{'\n'}
+          Shake or press menu button for dev menu
+        </Text>
+      </View>
     );
   }
 }
