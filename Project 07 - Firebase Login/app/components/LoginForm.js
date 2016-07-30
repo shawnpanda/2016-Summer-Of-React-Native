@@ -42,12 +42,14 @@ var LoginForm = React.createClass({
     let password = {
       label: 'Password',
       maxLength: 12,
+      secureTextEntry: true,
       editable: !this.props.form.isFetching
     }
 
     let passwordAgain = {
       label: 'Please enter password again',
       maxLength: 12,
+      secureTextEntry: true,
       editable: !this.props.form.isFetching
     }
 

@@ -49,6 +49,7 @@ class Login extends Component {
     return (
       <LoginRender
         formType={ LOGIN }
+        loginButtonText={ loginButtonText }
         onButtonPress={ onButtonPress }
         auth={ this.props.auth }
       />
