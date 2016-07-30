@@ -4,7 +4,11 @@ import configureStore from './store/configureStore'
 import { Router, Scene } from 'react-native-router-flux';
 import Login from './containers/Login'
 
-const store = configureStore();
+import { authInitialState } from './reducers/authReducers'
+
+const store = configureStore({
+  auth: new authInitialState
+});
 const RouterWithRedux = connect()(Router);
 
 class LoginApp extends Component {

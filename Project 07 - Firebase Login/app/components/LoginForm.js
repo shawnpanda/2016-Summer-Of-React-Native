@@ -7,11 +7,14 @@ import { REGISTER,
 
 // Uses tcomb-form-native library
 const t = require('tcomb-form-native');
-let Form = t.form.Form
+let Form = t.form.Form;
 
 var LoginForm = React.createClass({
   propTypes: {
-
+    formType: PropTypes.string,
+    form: PropTypes.object,
+    value: PropTypes.object,
+    onChange: PropTypes.func
   },
 
   render() {
@@ -96,6 +99,7 @@ var LoginForm = React.createClass({
           onChange={this.props.onChange}
         />
       )
-    }
   }
-})
+});
+
+export default LoginForm
