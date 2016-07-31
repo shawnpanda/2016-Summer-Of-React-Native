@@ -16,8 +16,8 @@ require('regenerator/runtime');
  * 
  * Config for defaults and underscore for a couple of features
  */ 
-import CONFIG from './config';
-import _ from 'underscore';
+// import CONFIG from './config';
+// import _ from 'underscore';
 
 export default class Backend {
   /**

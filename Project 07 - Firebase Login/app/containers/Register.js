@@ -37,7 +37,7 @@ function buttonPressHandler(signup, email, password) {
   signup(email, password)
 }
 
-class Login extends Component {
+class Register extends Component {
   render () {
     let loginButtonText = 'Register';
     let onButtonPress = buttonPressHandler.bind(null,
@@ -57,4 +57,4 @@ class Login extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Register)

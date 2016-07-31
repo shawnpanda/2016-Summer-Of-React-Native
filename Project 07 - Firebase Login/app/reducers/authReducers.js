@@ -19,3 +19,10 @@ const Form = Record({
 export const authInitialState = Record({
   form: new Form
 });
+
+export function authReducer(state = new authInitialState, action) {
+  switch (action.type) {
+    default:
+      return state
+  }
+}

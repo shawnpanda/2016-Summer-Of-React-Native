@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from '../reducers/reducers';
 import createLogger from 'redux-logger';
+import thunk from 'redux-thunk';
 
 export default function configureStore(initialState) {
   // Note: passing enhancer as last argument requires redux@>=3.1.0
@@ -8,7 +9,7 @@ export default function configureStore(initialState) {
   const store = createStore(rootReducer, 
               initialState, 
               compose(
-                applyMiddleware(logger),
+                applyMiddleware(thunk, logger),
                 global.reduxNativeDevTools ? global.reduxNativeDevTools(/*options*/) : nope => nope
               ));
 
