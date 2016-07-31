@@ -13,13 +13,17 @@ export default function fieldValidation(state, action) {
       break;
 
     case ('password'):
+      if (value.length < 3) {
+        return state.setIn(['form', 'fields', 'passwordHasError'], true)
+      }
+      return state.setIn(['form', 'fields', 'passwordHasError'], false)
       break
 
     case 'passwordAgain':
-      if (value == state.form.fields.password)  {
-        return state.setIn(['form', 'fields', 'passwordAgainHasError'], false)
+      if (value !== state.form.fields.password)  {
+        return state.setIn(['form', 'fields', 'passwordAgainHasError'], true)
       }
-      return state.setIn(['form', 'fields', 'passwordAgainHasError'], true)
+      return state.setIn(['form', 'fields', 'passwordAgainHasError'], false)
       break;
 
     default:
