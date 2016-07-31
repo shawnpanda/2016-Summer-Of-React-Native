@@ -57,7 +57,7 @@ var LoginForm = React.createClass({
     switch (formType) {
       case (REGISTER):
         loginForm = t.struct({
-          username: t.String,
+          // username: t.String,
           email: t.String,
           password: t.String,
           passwordAgain: t.String

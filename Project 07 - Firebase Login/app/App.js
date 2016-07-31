@@ -3,6 +3,7 @@ import { Provider, connect } from 'react-redux'
 import configureStore from './store/configureStore'
 import { Router, Scene } from 'react-native-router-flux';
 import Login from './containers/Login'
+import Register from './containers/Register'
 
 import { authInitialState } from './reducers/authReducers'
 
@@ -16,7 +17,8 @@ class LoginApp extends Component {
     return (
       <Provider store={store}>
         <RouterWithRedux>
-          <Scene key="login" hideNavBar={true} component={Login} />
+          <Scene key="register" hideNavBar={true} component={Register} initial={true} />
+          <Scene key="login" hideNavBar={true} component={Login} />        
         </RouterWithRedux>
       </Provider>
     );
