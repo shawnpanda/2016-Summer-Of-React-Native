@@ -2,7 +2,8 @@
 
 import { REGISTER,
          LOGIN,
-         FORGOT_PASSWORD } from '../lib/constants'
+         FORGOT_PASSWORD,
+         ON_AUTH_FORM_FIELD_CHANGE } from '../lib/constants'
 
 import { Actions } from 'react-native-router-flux'
 import BackendFactory from '../lib/BackendFactory'
@@ -30,6 +31,13 @@ export function signupRequest() {
   return {
     type: SIGNUP_REQUEST
   };
+}
+
+export function onAuthFormFieldChange(field, value) {
+  return {
+    type: ON_AUTH_FORM_FIELD_CHANGE,
+    payload: {field: field, value: value}
+  }
 } 
 
 export function signup(email, password) {
@@ -40,6 +48,9 @@ export function signup(email, password) {
     })
     .then((json) => {
       Actions.login()
+    })
+    .catch((error) => {
+
     })
   }
 }

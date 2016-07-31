@@ -44,11 +44,38 @@ class LoginRender extends Component {
     super(props)
     this.state = {
       value: {
+        email: this.props.auth.form.fields.email,
+        password: this.props.auth.form.fields.password,
+        passwordAgain: this.props.auth.form.fields.passwordAgain
       }
     }
   }
 
+  /**
+   * ### componentWillReceiveProps
+   * As the properties are validated they will be set here.
+   */
+  componentWillReceiveProps(nextprops) {
+    this.setState({
+      value: {
+        email: nextprops.auth.form.fields.email,
+        password: nextprops.auth.form.fields.password,
+        passwordAgain: nextprops.auth.form.fields.passwordAgain
+      }
+    });
+  }
+
   onChange(value) {
+    if (value.email != '') {
+      this.props.actions.onAuthFormFieldChange('email',value.email);
+    }
+    if (value.password != '') {
+      this.props.actions.onAuthFormFieldChange('password',value.password);
+    }
+    if (value.passwordAgain != '') {
+      this.props.actions.onAuthFormFieldChange('passwordAgain',value.passwordAgain);
+    }
+
     this.setState({value})
   }
 
@@ -57,6 +84,8 @@ class LoginRender extends Component {
     var onButtonPress = this.props.onButtonPress;
     var loginButtonText = this.props.loginButtonText;
 
+    let self = this;
+
     return (
       <View>
         <View>
@@ -64,11 +93,11 @@ class LoginRender extends Component {
             formType={formType}
             form={this.props.auth.form}
             value={this.state.value}
-            onChange={this.onChange.bind(this)}
+            onChange={self.onChange.bind(self)}
           />
         </View>
         <FormButton
-          isDisabled={this.props.auth.form.isFetching}
+          isDisabled={!this.props.auth.form.isValid || this.props.auth.form.isFetching}
           onPress={onButtonPress}
           buttonText={loginButtonText}/>
       </View>

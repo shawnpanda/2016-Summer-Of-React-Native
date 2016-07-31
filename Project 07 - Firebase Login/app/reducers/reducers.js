@@ -1,16 +1,5 @@
 import { combineReducers } from 'redux'
-
-const initialState= {
-  isValid: false,
-  isFetching: false
-}
-
-function auth(state = initialState, action) {
-  switch (action.type) {
-    default:
-      return state
-  }
-}
+import { authReducer } from './authReducers'
 
 function profile(state = {user: 'no-user'}, action) {
   switch (action.type) {
@@ -20,7 +9,7 @@ function profile(state = {user: 'no-user'}, action) {
 }
 
 const rootReducer = combineReducers({
-  auth,
+  auth: authReducer,
   profile
 })
 

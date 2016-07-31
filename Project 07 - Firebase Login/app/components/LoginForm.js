@@ -27,42 +27,37 @@ var LoginForm = React.createClass({
       }
     }
 
-    let username = {
-      label: 'Username',
-      maxLength: 12,
-      editable: !this.props.form.isFetching
-    }
-
     let email = {
       label: 'Email',
       keyboardType: 'email-address',
-      editable: !this.props.form.isFetching
+      editable: !this.props.form.isFetching,
+      hasError: this.props.form.fields.emailHasError
     }
 
     let password = {
       label: 'Password',
       maxLength: 12,
       secureTextEntry: true,
-      editable: !this.props.form.isFetching
+      editable: !this.props.form.isFetching,
+      hasError: this.props.form.fields.passwordHasError
     }
 
     let passwordAgain = {
       label: 'Please enter password again',
       maxLength: 12,
       secureTextEntry: true,
-      editable: !this.props.form.isFetching
+      editable: !this.props.form.isFetching,
+      hasError: this.props.form.fields.passwordAgainHasError
     }
 
     let loginForm;
     switch (formType) {
       case (REGISTER):
         loginForm = t.struct({
-          // username: t.String,
           email: t.String,
           password: t.String,
           passwordAgain: t.String
         })
-        options.fields['username'] = username;
         options.fields['email'] = email;
         options.fields['password'] = password;
         options.fields['passwordAgain'] = passwordAgain;
@@ -74,10 +69,10 @@ var LoginForm = React.createClass({
        */
       case(LOGIN):
         loginForm = t.struct({
-          username: t.String,
+          email: t.String,
           password: t.String
         });
-        options.fields['username'] = username;
+        options.fields['email'] = username;
         options.fields['password'] = password;
         break;
         
