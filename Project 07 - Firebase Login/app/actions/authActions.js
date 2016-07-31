@@ -3,7 +3,11 @@
 import { REGISTER,
          LOGIN,
          FORGOT_PASSWORD,
-         ON_AUTH_FORM_FIELD_CHANGE } from '../lib/constants'
+         ON_AUTH_FORM_FIELD_CHANGE,
+
+         SIGNUP_REQUEST,
+         SIGNUP_FAILURE,
+         SIGNUP_SUCCESS } from '../lib/constants'
 
 import { Actions } from 'react-native-router-flux'
 import BackendFactory from '../lib/BackendFactory'
@@ -27,11 +31,25 @@ export function registerState() {
   }
 }
 
+// Sign up Actions
 export function signupRequest() {
   return {
     type: SIGNUP_REQUEST
   };
 }
+
+export function signupFailure() {
+  return {
+    type: SIGNUP_FAILURE
+  }
+}
+
+export function signupSuccess() {
+  return {
+    type: SIGNUP_SUCCESS
+  }
+}
+
 
 export function onAuthFormFieldChange(field, value) {
   return {
@@ -42,15 +60,18 @@ export function onAuthFormFieldChange(field, value) {
 
 export function signup(email, password) {
   return dispatch => {
+    dispatch(signupRequest())
     return BackendFactory().signup({
       email: email,
       password: password
     })
     .then((json) => {
-      Actions.login()
+      alert(json)
+      dispatch(signupSuccess())
+      // Actions.login()
     })
     .catch((error) => {
-
+      dispatch(signupFailure())
     })
   }
 }

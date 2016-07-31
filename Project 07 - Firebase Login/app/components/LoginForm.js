@@ -72,7 +72,7 @@ var LoginForm = React.createClass({
           email: t.String,
           password: t.String
         });
-        options.fields['email'] = username;
+        options.fields['email'] = email;
         options.fields['password'] = password;
         break;
         

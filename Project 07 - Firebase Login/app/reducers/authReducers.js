@@ -2,7 +2,11 @@
 
 import { Record } from 'immutable'
 import { REGISTER,
-        ON_AUTH_FORM_FIELD_CHANGE } from '../lib/constants'
+        ON_AUTH_FORM_FIELD_CHANGE,
+        
+        SIGNUP_REQUEST,
+        SIGNUP_FAILURE,
+        SIGNUP_SUCCESS } from '../lib/constants'
 import fieldValidation from '../lib/fieldValidation'
 import formValidation from '../lib/formValidation'
 
@@ -28,6 +32,11 @@ export const authInitialState = Record({
 
 export function authReducer(state = new authInitialState, action) {   
   switch (action.type) {
+    case SIGNUP_REQUEST:
+      return state.setIn(['form','isFetching'], true)
+    case SIGNUP_FAILURE:
+    case SIGNUP_SUCCESS:
+      return state.setIn(['form','isFetching'], false)
     case ON_AUTH_FORM_FIELD_CHANGE:
       const { field, value } = action.payload;
       let nextState = state.setIn(['form', 'fields', field], value)

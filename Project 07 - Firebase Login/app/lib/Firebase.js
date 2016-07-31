@@ -17,32 +17,24 @@ export default class Firebase extends Backend{
       databaseURL: DATABASE_URL,
       storageBucket: STORAGE_BUCKET
     }
-    this.firebase = firebase.initializeApp(config);
+    if ( this.firebase == null) {
+      this.firebase = firebase.initializeApp(config);
+    }
   }
 
   async signup(data) {
     return await this.firebase.auth().createUserWithEmailAndPassword(data.email, data.password)
     .then((response) => {
-      return response.json().then(json => {
-        return json;
+      console.log(response)
+      return response.json().then(function (json) {
+        console.log(json)
+        alert(json);
+        return json;        
       })
     })
     .catch(function(error) {
-      if(error){
-        alert(error);
-        switch(error.code){
-          case "EMAIL_TAKEN":
-            alert("The new user account cannot be created because the email is already in use.");
-          break;
-
-          case "INVALID_EMAIL":
-            alert("The specified email is not a valid email.");
-          break;
-
-          default:
-            alert("Error creating user:");
-        }
-      }
+      alert('error code is ' + error.code);
+      alert('error message is ' + error.message);
     })
   }
 
