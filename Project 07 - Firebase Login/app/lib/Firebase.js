@@ -24,13 +24,9 @@ export default class Firebase extends Backend{
 
   async signup(data) {
     return await this.firebase.auth().createUserWithEmailAndPassword(data.email, data.password)
-    .then((response) => {
-      console.log(response)
-      return response.json().then(function (json) {
-        console.log(json)
-        alert(json);
-        return json;        
-      })
+    .then((userData) => {
+      console.log(userData)
+      return userData;        
     })
     .catch(function(error) {
       alert('error code is ' + error.code);
@@ -52,5 +48,11 @@ export default class Firebase extends Backend{
   async getProfile() {
   }
   async updateProfile(userId,data) {
+    return await this.firebase.auth().currentUser
+        .updateEmail(data.email).then(function() {
+
+    }, function(error) {
+
+    })
   }  
 }
