@@ -61,13 +61,12 @@ export function signup(email, password) {
       password: password
     })
     .then((json) => {
-      alert(json)
       console.log(json)
       dispatch(signupSuccess({
         username: json.email,
         email: json.email
       }))
-      // Actions.login()
+      Actions.profile()
     })
     .catch((error) => {
       dispatch(signupFailure())

@@ -4,6 +4,8 @@ import {
   PROFILE_UPDATE_REQUEST,
   PROFILE_UPDATE_SUCCESS,
   PROFILE_UPDATE_FAILURE,
+
+  GET_PROFILE_FIELDS
 } from '../lib/constants'
 
 import { Actions } from 'react-native-router-flux'
@@ -24,6 +26,14 @@ export function profileUpdateFailure(json) {
     type: PROFILE_UPDATE_FAILURE,
     payload: json
   };
+}
+
+export function getProfileFields(username, email) {
+  return {
+    type: GET_PROFILE_FIELDS,
+    payload: {username: username, 
+                email: email }
+  }
 }
 
 

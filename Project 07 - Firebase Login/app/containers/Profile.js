@@ -9,7 +9,7 @@ import FormButton from '../components/FormButton'
 import React, { Component } from 'react'
 import { StyleSheet, View } from 'react-native'
 import t from 'tcomb-form-native'
-import FormButton from '../lib/FormButton'
+import * as profileActions from '../actions/profileActions';
 
 let Form = t.form.Form
 
@@ -45,11 +45,24 @@ class Profile extends Component {
     }
   }
 
+  onChange(value) {
+    this.setState({value})
+  }
+
   componentWillReceiveProps(props) {
     this.setState({
       formValues: {
         username: props.profile.form.fields.username,
         email: props.profile.form.fields.email
+      }
+    })
+  }
+
+  componentDidMount() {
+    this.setState({
+      formValues: {
+        username: this.props.profile.form.fields.username,
+        email: this.props.profile.form.fields.email
       }
     })
   }
@@ -65,7 +78,7 @@ class Profile extends Component {
     let options = {
       fields: {
         username: {
-          label: 'Username'
+          label: 'Username',
           maxLength: 12,
           editable: !this.props.profile.form.isFetching,
           hasError: this.props.profile.form.fields.usernameHasError
@@ -81,7 +94,6 @@ class Profile extends Component {
     let profileButtonText = 'Update Profile'
     let onButtonPress = () => {
       this.props.actions.updateProfile(
-        this.props.profile.form.originalProfile.objectId,
         this.props.profile.form.fields.username,
         this.props.profile.form.fields.email      
       )
@@ -98,7 +110,7 @@ class Profile extends Component {
         <FormButton
           isDisabled={!this.props.auth.form.isValid || this.props.auth.form.isFetching}
           onPress={onButtonPress.bind(self)}
-          buttonText={loginButtonText}/>
+          buttonText={profileButtonText}/>
       </View>
     )
   }

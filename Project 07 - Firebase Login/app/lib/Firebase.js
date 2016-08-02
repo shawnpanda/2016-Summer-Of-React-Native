@@ -47,7 +47,7 @@ export default class Firebase extends Backend{
   }
   async getProfile() {
   }
-  async updateProfile(userId,data) {
+  async updateProfile(data) {
     return await this.firebase.auth().currentUser
         .updateEmail(data.email).then(function() {
 

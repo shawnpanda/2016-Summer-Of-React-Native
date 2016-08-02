@@ -115,7 +115,7 @@ export default class Backend {
    * @param data object:
    * {username: "barton", email: "barton@foo.com"}
    */
-  async updateProfile(userId,data) {
+  async updateProfile(data) {
   }  
 
 };
