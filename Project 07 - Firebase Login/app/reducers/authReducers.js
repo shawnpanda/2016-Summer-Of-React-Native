@@ -19,9 +19,9 @@ const Form = Record({
   fields: new (Record({
     email: '',
     emailHasError: false,
-    password: '',
+    password: '123456',
     passwordHasError: false,
-    passwordAgain: '',
+    passwordAgain: '123456',
     passwordAgainHasError: false,
   }))
 })

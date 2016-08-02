@@ -16,9 +16,10 @@ export function profileUpdateRequest() {
     type: PROFILE_UPDATE_REQUEST
   };
 }
-export function profileUpdateSuccess() {
+export function profileUpdateSuccess(data) {
   return {
-    type: PROFILE_UPDATE_SUCCESS
+    type: PROFILE_UPDATE_SUCCESS,
+    payload: data
   };
 }
 export function profileUpdateFailure(json) {
@@ -37,7 +38,11 @@ export function updateProfile(username, email) {
         email: email
       })
       .then(() => {
-        dispatch(profileUpdateSuccess())
+        dispatch(profileUpdateSuccess(
+        {
+        username: username,
+        email: email
+       }))
       })
       .catch((error) => {
         console.log('error is ' + error)
@@ -49,7 +54,7 @@ export function updateProfile(username, email) {
  * ## onProfileFormFieldChange
  * 
  */
-export function onProfileFormFieldChange(field,value) {
+export function onProfileFormFieldChange(field, value) {
   return {
     type: ON_PROFILE_FORM_FIELD_CHANGE,
     payload: {field: field, value: value}

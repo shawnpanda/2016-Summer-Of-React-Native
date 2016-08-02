@@ -38,8 +38,12 @@ export function profileReducer(state = new profileInitialState, action) {
     case PROFILE_UPDATE_REQUEST:
       return state.setIn(['form', 'isUpdating'], true)
     case PROFILE_UPDATE_FAILURE:
+      return state.setIn(['form', 'isUpdating'], false)
     case PROFILE_UPDATE_SUCCESS:
       return state.setIn(['form', 'isUpdating'], false)
+                  .setIn(['form', 'username'], action.payload.username)
+                  .setIn(['form', 'email'], action.payload.email)
+
     case ON_PROFILE_FORM_FIELD_CHANGE:
       
       let nextFormState =
