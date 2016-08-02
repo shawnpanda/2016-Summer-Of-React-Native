@@ -6,10 +6,10 @@ import Login from './containers/Login'
 import Register from './containers/Register'
 
 import { authInitialState } from './reducers/authReducers'
+import { profileInitialState } from './reducers/profileReducers'
 
-const store = configureStore({
-  auth: new authInitialState
-});
+
+const store = configureStore();
 const RouterWithRedux = connect()(Router);
 
 class LoginApp extends Component {

@@ -15,13 +15,11 @@ import { REGISTER,
          FORGOT_PASSWORD } from '../lib/constants';
 
 import * as authActions from '../actions/authActions'
-import * as globalActions from '../actions/globalActions'
 
 import { Map } from 'immutable'
 
 const actions = [
-  authActions,
-  globalActions  
+  authActions
 ]
 
 function mapStateToProps(state) {

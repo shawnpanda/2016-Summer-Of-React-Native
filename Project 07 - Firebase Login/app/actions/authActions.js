@@ -13,12 +13,6 @@ import { Actions } from 'react-native-router-flux'
 import BackendFactory from '../lib/BackendFactory'
 
 
-export function registerState() {
-  return {
-    type: REGISTER
-  }
-}
-
 export function forgotPasswordState() {
   return {
     type: FORGOT_PASSWORD
@@ -67,7 +61,11 @@ export function signup(email, password) {
     })
     .then((json) => {
       alert(json)
-      dispatch(signupSuccess())
+      console.log(json)
+      dispatch(signupSuccess({
+        username: json.email,
+        email: json.email
+      }))
       // Actions.login()
     })
     .catch((error) => {
