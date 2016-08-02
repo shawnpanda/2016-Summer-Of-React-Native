@@ -5,7 +5,7 @@ import {
   PROFILE_UPDATE_SUCCESS,
   PROFILE_UPDATE_FAILURE,
 
-  GET_PROFILE_FIELDS
+  ON_PROFILE_FORM_FIELD_CHANGE
 } from '../lib/constants'
 
 import { Actions } from 'react-native-router-flux'
@@ -28,15 +28,6 @@ export function profileUpdateFailure(json) {
   };
 }
 
-export function getProfileFields(username, email) {
-  return {
-    type: GET_PROFILE_FIELDS,
-    payload: {username: username, 
-                email: email }
-  }
-}
-
-
 export function updateProfile(username, email) {
   return dispatch => {
     dispatch(profileUpdateRequest())
@@ -52,4 +43,14 @@ export function updateProfile(username, email) {
         dispatch(profileUpdateFailure(error))
       })
   }
+}
+/**
+ * ## onProfileFormFieldChange
+ * 
+ */
+export function onProfileFormFieldChange(field,value) {
+  return {
+    type: ON_PROFILE_FORM_FIELD_CHANGE,
+    payload: {field: field, value: value}
+  };
 }

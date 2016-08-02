@@ -5,6 +5,13 @@ export default function fieldValidation(state, action) {
   const {field, value} = action.payload;
 
   switch (field) {
+    case ('username'):
+      if (value.length < 6) {
+        return state.setIn(['form', 'fields', 'usernameHasError'], true)
+      }
+      return state.setIn(['form', 'fields', 'usernameHasError'], false)
+      break
+
     case('email'):
       if (value.indexOf('@') === -1) {
         return state.setIn(['form', 'fields', 'emailHasError'], true)
@@ -13,7 +20,7 @@ export default function fieldValidation(state, action) {
       break;
 
     case ('password'):
-      if (value.length < 3) {
+      if (value.length < 6) {
         return state.setIn(['form', 'fields', 'passwordHasError'], true)
       }
       return state.setIn(['form', 'fields', 'passwordHasError'], false)

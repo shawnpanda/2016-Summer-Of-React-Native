@@ -3,10 +3,12 @@
 import { Record } from 'immutable'
 
 import { REGISTER,
-        ON_AUTH_FORM_FIELD_CHANGE,
         
         SIGNUP_SUCCESS,
-        GET_PROFILE_FIELDS } from '../lib/constants'
+        ON_PROFILE_FORM_FIELD_CHANGE } from '../lib/constants'
+import fieldValidation from '../lib/fieldValidation'
+import profileFormValidation from '../lib/profileFormValidation'
+
 
 const Profile = Record({
   username: null,
@@ -29,6 +31,16 @@ export const profileInitialState = Record({
 
 export function profileReducer(state = new profileInitialState, action) {
   switch (action.type) {
+    case ON_PROFILE_FORM_FIELD_CHANGE:
+      
+      let nextFormState =
+      state.setIn(['form', 'fields', action.payload.field],
+                  action.payload.value)
+
+      return profileFormValidation(
+        fieldValidation( nextFormState, action)
+        , action);
+
     case SIGNUP_SUCCESS:
       let { username, email } = action.payload
       return state.setIn(['form','username'], username)

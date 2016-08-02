@@ -38,7 +38,7 @@ class Profile extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      formValues: {
+      value: {
         username: '',
         email: ''
       }
@@ -46,12 +46,18 @@ class Profile extends Component {
   }
 
   onChange(value) {
+    if (value.username != '') {
+      this.props.actions.onProfileFormFieldChange('username', value.username)
+    }
+    if (value.email != '') {
+      this.props.actions.onProfileFormFieldChange('email', value.email)
+    }
     this.setState({value})
   }
 
   componentWillReceiveProps(props) {
     this.setState({
-      formValues: {
+      value: {
         username: props.profile.form.fields.username,
         email: props.profile.form.fields.email
       }
@@ -60,7 +66,7 @@ class Profile extends Component {
 
   componentDidMount() {
     this.setState({
-      formValues: {
+      value: {
         username: this.props.profile.form.fields.username,
         email: this.props.profile.form.fields.email
       }
@@ -104,7 +110,7 @@ class Profile extends Component {
           ref="form"
           type={ProfileForm}
           options={options}
-          value={this.state.formValues}
+          value={this.state.value}
           onChange={this.onChange.bind(self)}
         />
         <FormButton
