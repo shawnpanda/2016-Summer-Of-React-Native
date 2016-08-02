@@ -4,6 +4,7 @@ require('regenerator/runtime');
 
 import Backend from './Backend'
 import * as firebase from 'firebase'
+import { FirebaseApp } from './FirebaseInit'
 
 // Private git ignored file
 import { API_KEY, AUTH_DOMAIN, DATABASE_URL, STORAGE_BUCKET } from './secrets'
@@ -11,19 +12,11 @@ import { API_KEY, AUTH_DOMAIN, DATABASE_URL, STORAGE_BUCKET } from './secrets'
 export default class Firebase extends Backend{
   constructor(token) {
     super(token)
-    var config = {
-      apiKey: API_KEY,
-      authDomain: AUTH_DOMAIN,
-      databaseURL: DATABASE_URL,
-      storageBucket: STORAGE_BUCKET
-    }
-    if ( this.firebase == null) {
-      this.firebase = firebase.initializeApp(config);
-    }
+    this.firebase = FirebaseApp
   }
 
   async signup(data) {
-    return await this.firebase.auth().createUserWithEmailAndPassword(data.email, data.password)
+    return await this.firebase.createUserWithEmailAndPassword(data.email, data.password)
     .then((userData) => {
       console.log(userData)
       return userData;        
@@ -48,11 +41,15 @@ export default class Firebase extends Backend{
   async getProfile() {
   }
   async updateProfile(data) {
-    return await this.firebase.auth().currentUser
+    var user = this.firebase.currentUser
+    console.log(user)
+    return await user
         .updateEmail(data.email).then(function() {
+          console.log(user)
+          return
 
     }, function(error) {
-
+      alert('error message is ' + error.message);
     })
   }  
 }

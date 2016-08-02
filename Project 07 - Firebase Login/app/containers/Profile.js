@@ -114,7 +114,7 @@ class Profile extends Component {
           onChange={this.onChange.bind(self)}
         />
         <FormButton
-          isDisabled={!this.props.auth.form.isValid || this.props.auth.form.isFetching}
+          isDisabled={!this.props.profile.form.isValid || this.props.profile.form.isUpdating}
           onPress={onButtonPress.bind(self)}
           buttonText={profileButtonText}/>
       </View>

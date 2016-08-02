@@ -31,7 +31,7 @@ export function profileUpdateFailure(json) {
 export function updateProfile(username, email) {
   return dispatch => {
     dispatch(profileUpdateRequest())
-    return BackendFactory().updateProfile(1,
+    return BackendFactory().updateProfile(
       {
         username: username,
         email: email
@@ -40,6 +40,7 @@ export function updateProfile(username, email) {
         dispatch(profileUpdateSuccess())
       })
       .catch((error) => {
+        console.log('error is ' + error)
         dispatch(profileUpdateFailure(error))
       })
   }

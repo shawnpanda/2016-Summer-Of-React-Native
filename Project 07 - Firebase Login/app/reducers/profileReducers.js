@@ -4,6 +4,10 @@ import { Record } from 'immutable'
 
 import { REGISTER,
         
+        PROFILE_UPDATE_REQUEST,
+        PROFILE_UPDATE_FAILURE,
+        PROFILE_UPDATE_SUCCESS,
+
         SIGNUP_SUCCESS,
         ON_PROFILE_FORM_FIELD_CHANGE } from '../lib/constants'
 import fieldValidation from '../lib/fieldValidation'
@@ -14,7 +18,7 @@ const Profile = Record({
   username: null,
   email: null,
   objectId: null,
-  isValid: false,
+  isValid: true,
   isUpdating: false,
   fields: new (Record({
     username: '',
@@ -31,6 +35,11 @@ export const profileInitialState = Record({
 
 export function profileReducer(state = new profileInitialState, action) {
   switch (action.type) {
+    case PROFILE_UPDATE_REQUEST:
+      return state.setIn(['form', 'isUpdating'], true)
+    case PROFILE_UPDATE_FAILURE:
+    case PROFILE_UPDATE_SUCCESS:
+      return state.setIn(['form', 'isUpdating'], false)
     case ON_PROFILE_FORM_FIELD_CHANGE:
       
       let nextFormState =
