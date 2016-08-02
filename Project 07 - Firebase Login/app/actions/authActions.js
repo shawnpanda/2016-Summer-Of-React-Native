@@ -38,9 +38,10 @@ export function signupFailure() {
   }
 }
 
-export function signupSuccess() {
+export function signupSuccess(data) {
   return {
-    type: SIGNUP_SUCCESS
+    type: SIGNUP_SUCCESS,
+    payload: { username: data.username, email: data.email}
   }
 }
 
