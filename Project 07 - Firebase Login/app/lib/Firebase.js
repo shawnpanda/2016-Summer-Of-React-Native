@@ -33,9 +33,9 @@ export default class Firebase extends Backend{
       return user;
     })
     .catch((error) => {
-      alert('error code is ' + error.code);
-      alert('error message is ' + error.message);
-      throw(error)
+      // alert('error code is ' + error.code);
+      // alert('error message is ' + error.message);
+      throw(error.message)
     })
   }
 
@@ -44,7 +44,11 @@ export default class Firebase extends Backend{
   }
 
   async resetPassword(data) {
-
+    return await this.firebase.sendPasswordResetEmail(data.email)
+      .catch((error) => {
+        // alert('error message is ' + error.message);
+        throw(error.message)
+      })
   }
   async getProfile() {
   }
@@ -57,8 +61,8 @@ export default class Firebase extends Backend{
           }).then(() => {
             return
           }).catch((error) => {
-            alert('error message is ' + error.message);
-            throw(error)
+            // alert('error message is ' + error.message);
+            throw(error.message)
           })
     }, function(error) {
       alert('error message is ' + error.message);

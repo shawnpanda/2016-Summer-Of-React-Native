@@ -11,7 +11,11 @@ import { REGISTER,
 
          SIGNUP_REQUEST,
          SIGNUP_FAILURE,
-         SIGNUP_SUCCESS } from '../lib/constants'
+         SIGNUP_SUCCESS,
+
+         RESET_PASSWORD_REQUEST,
+         RESET_PASSWORD_SUCCESS,
+         RESET_PASSWORD_FAILURE } from '../lib/constants'
 
 import { Actions } from 'react-native-router-flux'
 import BackendFactory from '../lib/BackendFactory'
@@ -42,9 +46,10 @@ export function signupRequest() {
   };
 }
 
-export function signupFailure() {
+export function signupFailure(error) {
   return {
-    type: SIGNUP_FAILURE
+    type: SIGNUP_FAILURE,
+    payload: error
   }
 }
 
@@ -71,7 +76,7 @@ export function signup(email, password) {
       Actions.Profile()
     })
     .catch((error) => {
-      dispatch(signupFailure())
+      dispatch(signupFailure(error))
     })
   }
 }
@@ -90,9 +95,10 @@ export function loginSuccess(user) {
   }
 }
 
-export function loginFailure() {
+export function loginFailure(error) {
   return {
     type: LOGIN_FAILURE,
+    payload: error
   }
 }
 
@@ -111,7 +117,44 @@ export function login(email, password) {
       Actions.Profile()
     })
     .catch((error) => {
-      dispatch(loginFailure())
+      dispatch(loginFailure(error))
+    })
+  }
+}
+
+/**
+ * ## ResetPassword actions
+ */
+export function resetPasswordRequest() {
+  return {
+    type: RESET_PASSWORD_REQUEST
+  };
+}
+
+export function resetPasswordSuccess() {
+  return {
+    type: RESET_PASSWORD_SUCCESS
+  };
+}
+
+export function resetPasswordFailure(error) {
+  return {
+    type: RESET_PASSWORD_FAILURE,
+    payload: error
+  };
+}
+
+export function resetPassword(email) {
+  return dispatch => {
+    dispatch(resetPasswordRequest())
+    return BackendFactory().resetPassword({
+      email: email
+    })
+    .then(() => {
+      dispatch(resetPasswordSuccess())
+    })
+    .catch(() => {
+      dispatch(resetPasswordFailure(error))
     })
   }
 }

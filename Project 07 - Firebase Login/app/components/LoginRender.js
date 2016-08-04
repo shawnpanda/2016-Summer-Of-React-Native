@@ -156,6 +156,11 @@ class LoginRender extends Component {
           {leftMessage}
           {rightMessage}
         </View>
+        <View>
+          <Text>
+            {this.props.auth.form.error}
+          </Text>
+        </View>
       </View>
     )
   }
