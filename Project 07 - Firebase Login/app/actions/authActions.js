@@ -67,11 +67,11 @@ export function signup(email, password) {
       email: email,
       password: password
     })
-    .then((json) => {
-      console.log(json)
+    .then((user) => {
+      console.log(user)
       dispatch(signupSuccess({
-        username: json.email,
-        email: json.email
+        username: user.email,
+        email: user.email
       }))
       Actions.Profile()
     })
@@ -104,15 +104,15 @@ export function loginFailure(error) {
 
 export function login(email, password) {
   return dispatch => {
-    dispatch(loginRequest)
+    dispatch(loginRequest())
     return BackendFactory().login({
       email: email,
       password: password
     }).then((user) => {
       console.log(user)
       dispatch(loginSuccess({
-        username: json.email,
-        email: json.email
+        username: user.email,
+        email: user.email
       }))
       Actions.Profile()
     })
