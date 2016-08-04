@@ -13,10 +13,14 @@ import { LOGIN,
         SIGNUP_REQUEST,
         SIGNUP_FAILURE,
         SIGNUP_SUCCESS,
-        
+
         RESET_PASSWORD_REQUEST,
         RESET_PASSWORD_SUCCESS,
-        RESET_PASSWORD_FAILURE } from '../lib/constants'
+        RESET_PASSWORD_FAILURE,
+
+        LOGOUT_REQUEST,
+        LOGOUT_SUCCESS,
+        LOGOUT_FAILURE } from '../lib/constants'
 import fieldValidation from '../lib/fieldValidation'
 import formValidation from '../lib/formValidation'
 
@@ -31,7 +35,7 @@ const Form = Record({
     emailHasError: false,
     password: '',
     passwordHasError: false,
-    passwordAgain: '123456',
+    passwordAgain: '',
     passwordAgainHasError: false,
   }))
 })
@@ -51,16 +55,26 @@ export function authReducer(state = new authInitialState, action) {
     case SIGNUP_REQUEST:
     case LOGIN_REQUEST:
     case RESET_PASSWORD_REQUEST:
+    case LOGOUT_REQUEST:
       return state.setIn(['form','isFetching'], true)
     case SIGNUP_FAILURE:
     case LOGIN_FAILURE:
     case RESET_PASSWORD_FAILURE:
+    case LOGOUT_FAILURE:
       return state.setIn(['form','isFetching'], false)
                   .setIn(['form', 'error'], action.payload)
     case SIGNUP_SUCCESS:
     case LOGIN_SUCCESS:
     case RESET_PASSWORD_SUCCESS:
       return state.setIn(['form','isFetching'], false)
+    case LOGOUT_SUCCESS:
+      return formValidation(
+        state.setIn(['form','isFetching'], false)
+          .setIn(['form','error'], null)
+          .setIn(['form','fields','email'],'')
+          .setIn(['form','fields','password'],'')
+          .setIn(['form','fields','passwordAgain'],'')
+      );
     case ON_AUTH_FORM_FIELD_CHANGE:
       const { field, value } = action.payload;
       let nextState = state.setIn(['form', 'fields', field], value)

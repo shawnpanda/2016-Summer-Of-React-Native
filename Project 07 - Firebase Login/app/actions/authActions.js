@@ -15,7 +15,11 @@ import { REGISTER,
 
          RESET_PASSWORD_REQUEST,
          RESET_PASSWORD_SUCCESS,
-         RESET_PASSWORD_FAILURE } from '../lib/constants'
+         RESET_PASSWORD_FAILURE,
+
+         LOGOUT_REQUEST,
+         LOGOUT_SUCCESS,
+         LOGOUT_FAILURE } from '../lib/constants'
 
 import { Actions } from 'react-native-router-flux'
 import BackendFactory from '../lib/BackendFactory'
@@ -153,8 +157,41 @@ export function resetPassword(email) {
     .then(() => {
       dispatch(resetPasswordSuccess())
     })
-    .catch(() => {
+    .catch((error) => {
       dispatch(resetPasswordFailure(error))
+    })
+  }
+}
+
+// Logout Actions
+export function logoutRequest(){
+  return {
+    type: LOGOUT_REQUEST
+  }
+}
+
+export function logoutSuccess(){
+  return {
+    type: LOGOUT_SUCCESS
+  }
+}
+
+export function logoutFailure(error){
+  return {
+    type: LOGOUT_FAILURE,
+    payload: error
+  }
+}
+export function logout() {
+  return dispatch => {
+    dispatch(logoutRequest())
+    return BackendFactory().logout()
+    .then(() => {
+      dispatch(logoutSuccess())
+      Actions.Login()
+    })
+    .catch((error) => {
+      dispatch(logoutFailure(error))
     })
   }
 }

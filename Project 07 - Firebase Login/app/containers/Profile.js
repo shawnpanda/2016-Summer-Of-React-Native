@@ -10,10 +10,13 @@ import React, { Component } from 'react'
 import { StyleSheet, View } from 'react-native'
 import t from 'tcomb-form-native'
 import * as profileActions from '../actions/profileActions';
+import * as authActions from '../actions/authActions';
+
 
 let Form = t.form.Form
 
 const actions = [
+  authActions,
   profileActions
 ]
 
@@ -98,11 +101,15 @@ class Profile extends Component {
       }
     }
     let profileButtonText = 'Update Profile'
+    let logoutButtonText = 'Log Out'
     let onButtonPress = () => {
       this.props.actions.updateProfile(
         this.props.profile.form.fields.username,
         this.props.profile.form.fields.email      
       )
+    }
+    let logoutButtonPress = () => {
+      this.props.actions.logout()
     }
     return (
       <View>
@@ -113,10 +120,16 @@ class Profile extends Component {
           value={this.state.value}
           onChange={this.onChange.bind(self)}
         />
+
         <FormButton
           isDisabled={!this.props.profile.form.isValid || this.props.profile.form.isUpdating}
           onPress={onButtonPress.bind(self)}
           buttonText={profileButtonText}/>
+
+        <FormButton
+          onPress={logoutButtonPress.bind(self)}
+          buttonText={logoutButtonText}
+        />
       </View>
     )
   }

@@ -40,7 +40,10 @@ export default class Firebase extends Backend{
   }
 
   async logout() {
-
+    return await this.firebase.signOut()
+      .catch((error) => {
+        throw(error.message)
+      })
   }
 
   async resetPassword(data) {
