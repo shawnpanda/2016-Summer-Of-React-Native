@@ -8,6 +8,7 @@ import { REGISTER,
         PROFILE_UPDATE_FAILURE,
         PROFILE_UPDATE_SUCCESS,
 
+        LOGIN_SUCCESS,
         SIGNUP_SUCCESS,
         ON_PROFILE_FORM_FIELD_CHANGE } from '../lib/constants'
 import fieldValidation from '../lib/fieldValidation'
@@ -53,7 +54,7 @@ export function profileReducer(state = new profileInitialState, action) {
       return profileFormValidation(
         fieldValidation( nextFormState, action)
         , action);
-
+    case LOGIN_SUCCESS:
     case SIGNUP_SUCCESS:
       let { username, email } = action.payload
       return state.setIn(['form','username'], username)

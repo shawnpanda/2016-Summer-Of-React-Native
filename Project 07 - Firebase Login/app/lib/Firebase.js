@@ -28,7 +28,15 @@ export default class Firebase extends Backend{
   }
 
   async login(data) {
-
+    return await this.firebase.signInWithEmailAndPassword(data.email, data.password)
+    .then((user) => {
+      return user;
+    })
+    .catch((error) => {
+      alert('error code is ' + error.code);
+      alert('error message is ' + error.message);
+      throw(error)
+    })
   }
 
   async logout() {

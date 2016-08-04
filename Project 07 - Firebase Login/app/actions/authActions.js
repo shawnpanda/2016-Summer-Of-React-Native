@@ -5,6 +5,10 @@ import { REGISTER,
          FORGOT_PASSWORD,
          ON_AUTH_FORM_FIELD_CHANGE,
 
+         LOGIN_REQUEST,
+         LOGIN_FAILURE,
+         LOGIN_SUCCESS,
+
          SIGNUP_REQUEST,
          SIGNUP_FAILURE,
          SIGNUP_SUCCESS } from '../lib/constants'
@@ -44,20 +48,12 @@ export function signupFailure() {
   }
 }
 
-export function signupSuccess(data) {
+export function signupSuccess(user) {
   return {
     type: SIGNUP_SUCCESS,
-    payload: { username: data.username, email: data.email}
+    payload: { username: user.username, email: user.email}
   }
 }
-
-
-export function onAuthFormFieldChange(field, value) {
-  return {
-    type: ON_AUTH_FORM_FIELD_CHANGE,
-    payload: {field: field, value: value}
-  }
-} 
 
 export function signup(email, password) {
   return dispatch => {
@@ -79,3 +75,51 @@ export function signup(email, password) {
     })
   }
 }
+
+// Log in actions
+export function loginRequest() {
+  return {
+    type: LOGIN_REQUEST
+  };
+}
+
+export function loginSuccess(user) {
+  return {
+    type: LOGIN_SUCCESS,
+    payload: { email: user.email, username: user.displayName}
+  }
+}
+
+export function loginFailure() {
+  return {
+    type: LOGIN_FAILURE,
+  }
+}
+
+export function login(email, password) {
+  return dispatch => {
+    dispatch(loginRequest)
+    return BackendFactory().login({
+      email: email,
+      password: password
+    }).then((user) => {
+      console.log(user)
+      dispatch(loginSuccess({
+        username: json.email,
+        email: json.email
+      }))
+      Actions.Profile()
+    })
+    .catch((error) => {
+      dispatch(loginFailure())
+    })
+  }
+}
+
+// Field Validation function
+export function onAuthFormFieldChange(field, value) {
+  return {
+    type: ON_AUTH_FORM_FIELD_CHANGE,
+    payload: {field: field, value: value}
+  }
+} 

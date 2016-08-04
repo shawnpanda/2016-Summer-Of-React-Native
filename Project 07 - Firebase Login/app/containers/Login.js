@@ -33,8 +33,8 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-function buttonPressHandler(login, username, password) {
-  login(username, password)
+function buttonPressHandler(login, email, password) {
+  login(email, password)
 }
 
 class Login extends Component {
@@ -42,7 +42,7 @@ class Login extends Component {
     let loginButtonText = 'Log in';
     let onButtonPress = buttonPressHandler.bind(null,
                         this.props.actions.login,
-                        this.props.auth.form.fields.username,
+                        this.props.auth.form.fields.email,
                         this.props.auth.form.fields.password
                         )
 
