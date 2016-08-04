@@ -51,6 +51,8 @@ class Register extends Component {
         formType={ REGISTER }
         loginButtonText={ loginButtonText }
         onButtonPress={ onButtonPress }
+        leftMessageType = { FORGOT_PASSWORD }
+        rightMessageType = { LOGIN }
         auth={ this.props.auth }
       />
     )

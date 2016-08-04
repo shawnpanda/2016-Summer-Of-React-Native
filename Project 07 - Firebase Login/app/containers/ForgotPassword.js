@@ -33,30 +33,29 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-function buttonPressHandler(login, username, password) {
-  login(username, password)
+function buttonPressHandler(resetPassword, email) {
+  resetPassword(email)
 }
 
-class Login extends Component {
+class ForgotPassword extends Component {
   render () {
-    let loginButtonText = 'Log in';
+    let loginButtonText = 'Reset Password';
     let onButtonPress = buttonPressHandler.bind(null,
-                        this.props.actions.login,
-                        this.props.auth.form.fields.username,
-                        this.props.auth.form.fields.password
+                        this.props.actions.resetPassword,
+                        this.props.auth.form.fields.email
                         )
 
     return (
       <LoginRender
-        formType={ LOGIN }
+        formType={ FORGOT_PASSWORD }
         loginButtonText={ loginButtonText }
         onButtonPress={ onButtonPress }
         leftMessageType = { REGISTER }
-        rightMessageType = { FORGOT_PASSWORD }
+        rightMessageType = { LOGIN }
         auth={ this.props.auth }
       />
     )
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(ForgotPassword)

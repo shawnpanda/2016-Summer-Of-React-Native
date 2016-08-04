@@ -8,7 +8,7 @@ import LoginForm from '../components/LoginForm'
 import FormButton from '../components/FormButton'
 
 import React, { Component } from 'react';
-import { Stylesheet, Text, TouchableHighlight, View } from 'react-native'
+import { StyleSheet, Text, TouchableHighlight, View } from 'react-native'
 
 import { REGISTER,
          LOGIN,
@@ -16,7 +16,18 @@ import { REGISTER,
 
 import * as authActions from '../actions/authActions'
 
+
 import { Map } from 'immutable'
+
+var styles= StyleSheet.create({
+  forgotContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 10,
+    marginLeft: 10,
+    marginRight: 10
+  }
+})
 
 const actions = [
   authActions
@@ -77,10 +88,53 @@ class LoginRender extends Component {
     this.setState({value})
   }
 
+  getMessage(messageType, actions) {
+    let forgotPassword =
+    <TouchableHighlight
+        onPress={() => {
+            actions.forgotPasswordState();
+            Actions.ForgotPassword();
+          }} >
+      <Text>Forgot Password?</Text>
+    </TouchableHighlight>;
+
+    let alreadyHaveAccount =
+    <TouchableHighlight
+        onPress={() => {
+            actions.loginState();
+            Actions.Login();
+          }} >
+      <Text>Already have an account?</Text>
+    </TouchableHighlight>;
+    
+    let register =
+    <TouchableHighlight 
+        onPress={() => {
+            actions.registerState();
+            Actions.Register();
+          }} >
+      <Text>Register</Text>
+    </TouchableHighlight>;
+    
+    switch(messageType) {
+    case FORGOT_PASSWORD:
+      return forgotPassword;
+    case LOGIN:
+      return alreadyHaveAccount;
+    case REGISTER:  
+      return register;
+    }
+  }
+
   render() {
     var formType = this.props.formType;
     var onButtonPress = this.props.onButtonPress;
     var loginButtonText = this.props.loginButtonText;
+    var leftMessageType = this.props.leftMessageType;
+    var rightMessageType = this.props.rightMessageType;
+
+    let leftMessage = this.getMessage(leftMessageType, this.props.actions);
+    let rightMessage = this.getMessage(rightMessageType, this.props.actions);
 
     let self = this;
 
@@ -98,6 +152,10 @@ class LoginRender extends Component {
           isDisabled={!this.props.auth.form.isValid || this.props.auth.form.isFetching}
           onPress={onButtonPress}
           buttonText={loginButtonText}/>
+        <View style={styles.forgotContainer}>
+          {leftMessage}
+          {rightMessage}
+        </View>
       </View>
     )
   }

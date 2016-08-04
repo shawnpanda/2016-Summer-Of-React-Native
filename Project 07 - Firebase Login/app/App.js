@@ -5,6 +5,7 @@ import { Router, Scene } from 'react-native-router-flux';
 import Login from './containers/Login'
 import Register from './containers/Register'
 import Profile from './containers/Profile'
+import ForgotPassword from './containers/ForgotPassword'
 
 
 import { authInitialState } from './reducers/authReducers'
@@ -19,9 +20,10 @@ class LoginApp extends Component {
     return (
       <Provider store={store}>
         <RouterWithRedux>
-          <Scene key="register" hideNavBar={true} component={Register} initial={true} />
-          <Scene key="login" hideNavBar={true} component={Login} />        
-          <Scene key="profile" hideNavBar={true} component={Profile} />        
+          <Scene key="Register" hideNavBar={true} component={Register} initial={true} />
+          <Scene key="Login" hideNavBar={true} component={Login} />        
+          <Scene key="Profile" hideNavBar={true} component={Profile} />        
+          <Scene key="ForgotPassword" hideNavBar={true} component={ForgotPassword} />        
         </RouterWithRedux>
       </Provider>
     );

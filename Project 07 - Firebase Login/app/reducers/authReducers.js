@@ -1,7 +1,9 @@
 'use strict'
 
 import { Record } from 'immutable'
-import { REGISTER,
+import { LOGIN,
+        REGISTER,
+        FORGOT_PASSWORD,
         ON_AUTH_FORM_FIELD_CHANGE,
         
         SIGNUP_REQUEST,
@@ -32,6 +34,12 @@ export const authInitialState = Record({
 
 export function authReducer(state = new authInitialState, action) {   
   switch (action.type) {
+    case LOGIN:
+    case REGISTER:
+    case FORGOT_PASSWORD:
+      return formValidation(
+        state.setIn(['form', 'state'], action.type)
+      );
     case SIGNUP_REQUEST:
       return state.setIn(['form','isFetching'], true)
     case SIGNUP_FAILURE:

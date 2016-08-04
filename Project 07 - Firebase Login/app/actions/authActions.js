@@ -25,6 +25,12 @@ export function registerState() {
   }
 }
 
+export function loginState() {
+  return {
+    type: LOGIN
+  };
+}
+
 // Sign up Actions
 export function signupRequest() {
   return {
@@ -66,7 +72,7 @@ export function signup(email, password) {
         username: json.email,
         email: json.email
       }))
-      Actions.profile()
+      Actions.Profile()
     })
     .catch((error) => {
       dispatch(signupFailure())
