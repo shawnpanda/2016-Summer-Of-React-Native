@@ -57,15 +57,16 @@ export function authReducer(state = new authInitialState, action) {
     case RESET_PASSWORD_REQUEST:
     case LOGOUT_REQUEST:
       return state.setIn(['form','isFetching'], true)
+                  .setIn(['form', 'error'], null)
     case SIGNUP_FAILURE:
     case LOGIN_FAILURE:
     case RESET_PASSWORD_FAILURE:
     case LOGOUT_FAILURE:
+    case RESET_PASSWORD_SUCCESS:
       return state.setIn(['form','isFetching'], false)
                   .setIn(['form', 'error'], action.payload)
     case SIGNUP_SUCCESS:
     case LOGIN_SUCCESS:
-    case RESET_PASSWORD_SUCCESS:
       return state.setIn(['form','isFetching'], false)
     case LOGOUT_SUCCESS:
       return formValidation(

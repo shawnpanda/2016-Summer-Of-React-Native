@@ -21,9 +21,9 @@ export default class Firebase extends Backend{
       return user;
     })
     .catch((error) => {
-      alert('error code is ' + error.code);
+      // alert('error code is ' + error.code);
       alert('error message is ' + error.message);
-      throw(error)
+      throw(error.message)
     })
   }
 

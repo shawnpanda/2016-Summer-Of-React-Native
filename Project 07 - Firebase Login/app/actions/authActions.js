@@ -137,7 +137,8 @@ export function resetPasswordRequest() {
 
 export function resetPasswordSuccess() {
   return {
-    type: RESET_PASSWORD_SUCCESS
+    type: RESET_PASSWORD_SUCCESS,
+    payload: 'Reset password email has been sent to your email'
   };
 }
 
