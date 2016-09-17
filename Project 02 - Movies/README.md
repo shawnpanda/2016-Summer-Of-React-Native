@@ -2,13 +2,16 @@
 
 This app fetches popular movies from theMovieDB and allows infinite scrolling.
 
+Demo
+![Movie Project Demo](https://github.com/shawnpanda/2016-Summer-Of-React-Native/blob/master/Project%2002%20-%20Movies/movie-demo.gif)
+
+
 ### Library Used
 * redux
 * react-native-router-flux
 * react-redux
 * redux-logger
 * redux-thunk
-* remote-redux-devtools
 
 ### What I have learned
 
