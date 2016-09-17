@@ -1,13 +1,11 @@
 import { fakeFetchMovies } from '../api/index' 
+import { MOVIE_API, MOVIE_DB } from './keys'
 export const SELECT_MOVIE = 'SELECT_MOVIE'
 export const FETCHED_TRAILER = 'FETCHED_TRAILER'
 export const REQUEST_MOVIES = 'REQUEST_MOVIES'
 export const RECEIVE_MOVIES = 'RECEIVE_MOVIES'
 export const FETCHING_NEXT_PAGE_MOVIES = 'FETCHING_NEXT_PAGE_MOVIES'
 
-
-const MOVIE_API = 'http://api.themoviedb.org/3/movie/'
-const MOVIE_DB = '12d413ef356ab41e658251659e1ad04c'
 
 export function selectMovie(id) {
 	return dispatch => {

@@ -11,8 +11,8 @@ class Movie extends Component {
 		return (
 			<TouchableOpacity style={styles.movie} onPress={goViewDetails}>
 				<Image 
-						source={{ uri: 'http://image.tmdb.org/t/p/w185/' + this.props.movie.poster_path}} 
 						style={styles.image}
+						source={{ uri: 'https://image.tmdb.org/t/p/w185' + this.props.movie.poster_path}} 
 					/>
 			</TouchableOpacity>
 		)
@@ -21,9 +21,8 @@ class Movie extends Component {
 
 var styles = StyleSheet.create({
 	image: {
-		height: 250,
-		width:180,
-		flex:1
+		width:187,
+		height: 250
 	}
 })
 

@@ -8,7 +8,7 @@ class MovieDetails extends Component {
 	}
 
 	renderImageURL(url) {
-		return 'http://image.tmdb.org/t/p/w185/' + url		
+		return 'https://image.tmdb.org/t/p/w185/' + url		
 	} 
 
 	componentDidMount() {
@@ -31,9 +31,7 @@ class MovieDetails extends Component {
 					</View>
 				</View>
 				<View style={styles.overview}>
-						<Text>Its id is {this.props.movie.id}</Text>
-					<Text>this.props.title is {this.props.title}</Text>
-					<Text>this.props.movie.trailerURL is {this.props.movie.trailerURL}</Text>
+					<Text>Its trailer URL is {this.props.movie.trailerURL}</Text>
 					<Text>{this.props.movie.overview}</Text>
 				</View>
 				</ScrollView>
@@ -54,16 +52,17 @@ var styles = StyleSheet.create({
     height: 500,
   },
 	image: {
-		flex: 1,
-		width: 185,
-		height: 250
+		flex: 5,
+		width: 10,
+		height: 250,
+		paddingTop:20
 	},
 	title: {
 		fontSize: 20,
 		fontWeight: "500"
 	},
 	textContainer: {
-		flex: 1,
+		flex: 4,
 		alignSelf: 'center',
 		alignItems: 'center'
 	},
