@@ -6,8 +6,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
-    "react": "15.1.0",
-    "react-native": "^0.28.0",
-    "react-native-maps": "github:skellock/react-native-maps#friends-with-28"
+    "react": "^15.3.1",
+    "react-native": "^0.33.0",
+    "react-native-maps": "^0.8.2"
   }
 }

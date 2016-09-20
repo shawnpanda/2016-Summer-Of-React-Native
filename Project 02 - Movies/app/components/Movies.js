@@ -15,9 +15,7 @@ class Movies extends Component {
 	}
 	renderMovie(movie) {
 		return (
-			<View>
 			<Movie movie={movie}/>
-			</View>
 		)
 	}
 

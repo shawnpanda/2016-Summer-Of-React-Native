@@ -7,7 +7,7 @@ I was aware that I would need to set up a react native app with registration fun
 This app took longer than any of my previous apps, and the whole process has been extremel fruitful. I was able to learn from the complexity of snowflake and deepened my understanding of redux abstraction.
 
 ### Demo
-
+![demo](https://github.com/shawnpanda/2016-Summer-Of-React-Native/blob/master/Project%2007%20-%20Firebase%20Login/demo.gif)
 
 
 ### Library Used
