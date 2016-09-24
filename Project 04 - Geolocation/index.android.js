@@ -1,5 +1,5 @@
 /**
- * Sample React Native App
+ * Geolocation App
  * https://github.com/facebook/react-native
  * @flow
  */
