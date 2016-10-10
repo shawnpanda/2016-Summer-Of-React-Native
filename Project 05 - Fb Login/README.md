@@ -17,3 +17,4 @@ This is a practice app to integrate cross-platform facebook sdk in react native 
 
 ### Useful Links
 [!react-native-fbsdk](https://github.com/facebook/react-native-fbsdk)
+[!Guide-on-fbsdk](https://medium.freecodecamp.com/installing-the-facebook-sdk-into-a-react-native-android-and-ios-app-69439bd97a99#.eus9bvo9c)
