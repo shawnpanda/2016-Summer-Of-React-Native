@@ -3,7 +3,7 @@
 This is a practice app to integrate cross-platform facebook sdk in react native app.
 
 ### Demo
-
+![demo](https://github.com/shawnpanda/2016-Summer-Of-React-Native/blob/master/Project%2005%20-%20Fb%20Login/demo.gif)
 
 ### Library Used
 * react-native-fbsdk
